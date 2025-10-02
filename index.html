@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS --- */
+        /* --- 1. GLOBAL SETUP & VARIABLES --- */
         :root {
             --text-color: #24282A;
             --header-color: #231372;
@@ -24,7 +24,7 @@
             --border-color: #e9ecef;
         }
 
-        /* --- 2. ESTILOS DE BASE E RESET --- */
+        /* --- 2. BASE STYLES & RESET --- */
         *, *::before, *::after { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -38,7 +38,7 @@
         }
         main { max-width: 1200px; margin: 2em auto; padding: 0 1.5em; }
 
-        /* --- 3. CABEÇALHO E RODAPÉ --- */
+        /* --- 3. HEADER & FOOTER --- */
         .site-header {
             background-color: var(--card-bg-color);
             padding: 1.5em;
@@ -50,7 +50,7 @@
         .site-header svg { height: 70px; width: auto; }
         .site-footer { text-align: center; padding: 2em; margin-top: 2em; font-size: 0.9em; color: #6c757d; }
 
-        /* --- 4. TIPOGRAFIA --- */
+        /* --- 4. TYPOGRAPHY --- */
         h1, h2, h3, h4 {
             font-family: var(--font-header);
             color: var(--header-color);
@@ -64,14 +64,14 @@
         h4 { font-size: 1.1rem; }
         p.subtitle { color: #6c757d; margin-top: -1em; margin-bottom: 1.5em; }
 
-        /* --- 5. LAYOUT E COMPONENTES --- */
+        /* --- 5. LAYOUT & COMPONENTS --- */
         .card { background-color: var(--card-bg-color); padding: 2em; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 2.5em; }
         .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-top: 1.5em; }
         .sport-card { background-color: var(--background-color); padding: 1.5em; border-radius: 8px; border: 1px solid var(--border-color); }
         .sport-card h4 { margin-top: 0; }
         .chart-container { margin-top: 2em; margin-bottom: 2.5em; }
 
-        /* --- 6. TABELAS --- */
+        /* --- 6. TABLES --- */
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; margin-top: 1em; }
         table th, table td { padding: 1em 1.2em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-color); }
@@ -82,7 +82,7 @@
         .potential.medium { color: #fd7e14; }
         .potential.none { color: #dc3545; }
 
-        /* --- 7. SECÇÃO DE DETALHES DA PLATAFORMA --- */
+        /* --- 7. PLATFORM DETAILS SECTION --- */
         .details-section { margin-top: 2.5em; }
         .detail-card {
             background-color: var(--background-color);
@@ -123,7 +123,7 @@
         }
         .detail-point p { margin: 0; font-size: 0.95em; }
 
-        /* --- 8. DESIGN RESPONSIVO PARA TABELA REGIONAL --- */
+        /* --- 8. RESPONSIVE DESIGN FOR REGIONAL TABLE --- */
         @media (max-width: 900px) {
             .regional-table thead { display: none; }
             .regional-table tr { display: block; margin-bottom: 1.5em; border: 1px solid var(--border-color); border-radius: 8px; padding: 1em; background-color: #fff; }
@@ -132,7 +132,7 @@
             .regional-table td::before { content: attr(data-label); position: absolute; left: 0; width: 45%; padding-right: 10px; white-space: nowrap; text-align: left; font-family: var(--font-header); color: var(--header-color); font-weight: 700; text-transform: uppercase; font-size: 0.85em; }
         }
         
-        /* --- 9. ESTILOS PARA GRÁFICOS REGIONAIS (NOVO) --- */
+        /* --- 9. STYLES FOR REGIONAL CHARTS --- */
         .regional-charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -186,7 +186,7 @@
             padding-right: 8px;
             white-space: nowrap;
         }
-        /* Cores alternadas para as barras */
+        /* Alternating colors for bars */
         .chart-bar-item:nth-child(2n) .chart-bar { background-color: var(--graphic-color-2); color: var(--text-color);}
         .chart-bar-item:nth-child(3n) .chart-bar { background-color: var(--graphic-color-3); }
 
@@ -264,12 +264,12 @@
         </section>
         
         <section class="card">
-            <h2>Análise Regional de Torcidas (Datafolha 2024)</h2>
-            <p>A paixão pelo futebol no Brasil apresenta claras variações regionais. Clubes de Rio de Janeiro e São Paulo possuem alcance nacional, mas a força das equipes locais define o cenário em cada canto do país, impactando diretamente o potencial de engajamento para o mercado de iGaming.</p>
+            <h2>Regional Fanbase Analysis (Datafolha 2024)</h2>
+            <p>The passion for football in Brazil shows clear regional variations. Clubs from Rio de Janeiro and São Paulo have a national reach, but the strength of local teams defines the landscape in every corner of the country, directly impacting the engagement potential for the iGaming market.</p>
             <div class="regional-charts-grid">
                 
                 <div class="region-card">
-                    <h3>Sudeste</h3>
+                    <h3>Southeast</h3>
                     <ul class="chart-bar-list">
                         <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 20%;">20%</div></div></li>
                         <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 15%;">15%</div></div></li>
@@ -280,7 +280,7 @@
                 </div>
 
                 <div class="region-card">
-                    <h3>Nordeste</h3>
+                    <h3>Northeast</h3>
                     <ul class="chart-bar-list">
                         <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 25%;">25%</div></div></li>
                         <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 8%;">8%</div></div></li>
@@ -291,7 +291,7 @@
                 </div>
 
                 <div class="region-card">
-                    <h3>Sul</h3>
+                    <h3>South</h3>
                     <ul class="chart-bar-list">
                         <li class="chart-bar-item"><span class="chart-bar-label">Grêmio</span><div class="chart-bar-container"><div class="chart-bar" style="width: 23%;">23%</div></div></li>
                         <li class="chart-bar-item"><span class="chart-bar-label">Internacional</span><div class="chart-bar-container"><div class="chart-bar" style="width: 18%;">18%</div></div></li>
@@ -302,7 +302,7 @@
                 </div>
 
                 <div class="region-card">
-                    <h3>Norte & Centro-Oeste</h3>
+                    <h3>North & Center-West</h3>
                     <ul class="chart-bar-list">
                         <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 29%;">29%</div></div></li>
                         <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 11%;">11%</div></div></li>
@@ -313,6 +313,7 @@
                 </div>
             </div>
         </section>
+
         <section class="card">
             <h2>Social Media Platform Analysis</h2>
             <p class="subtitle">An analysis of key social media platforms in Brazil for iGaming acquisition campaigns.</p>
@@ -331,4 +332,100 @@
                             <tr><td>WhatsApp</td><td>169</td></tr>
                             <tr><td>Instagram</td><td>113.5</td></tr>
                             <tr><td>Facebook</td><td>109.1</td></tr>
-                            <tr><td>Telegram</td><td>8
+                            <tr><td>Telegram</td><td>80</td></tr>
+                            <tr><td>X (Twitter)</td><td>22.1</td></tr>
+                            <tr><td>Snapchat</td><td>7.6</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3>Platform Comparison Summary</h3>
+                <table id="platform-table">
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Active Users (Millions)</th>
+                            <th>Estimated Avg. CPC (USD)</th>
+                            <th>Gambling Potential</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>WhatsApp</td><td>169</td><td>$0.05 - $0.15 (per conversation)</td><td><span class="potential medium">Medium</span></td></tr>
+                        <tr><td>Instagram</td><td>113.5</td><td>$0.40 - $0.70</td><td><span class="potential high">High</span></td></tr>
+                        <tr><td>Facebook</td><td>109.1</td><td>$0.35 - $0.60</td><td><span class="potential high">High</span></td></tr>
+                        <tr><td>Telegram</td><td>80</td><td>N/A</td><td><span class="potential medium">Medium</span></td></tr>
+                        <tr><td>X (Twitter)</td><td>22.1</td><td>$0.50 - $1.00</td><td><span class="potential high">High</span></td></tr>
+                        <tr><td>Snapchat</td><td>7.6</td><td>N/A</td><td><span class="potential none">None</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="details-container" class="details-section">
+                <h3>Detailed Platform Analysis</h3>
+                
+                <article class="detail-card" id="whatsapp">
+                    <h4>WhatsApp<span class="policy-tag indirect">Indirect Platform</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>Broad (all age groups)</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>Message open rates exceed 90%; a direct channel to convert warm leads.</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>Not for cold traffic acquisition; depends on ads on other platforms to initiate conversations.</p></div>
+                    </div>
+                </article>
+
+                <article class="detail-card" id="instagram">
+                    <h4>Instagram<span class="policy-tag restricted">Allowed with Restrictions</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>18-34 years old (both genders)</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>Largest reach in the key target audience (18-34); highly visual ad formats (Reels/Stories).</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>High competition can increase costs and requires high-quality creatives to stand out.</p></div>
+                    </div>
+                </article>
+
+                <article class="detail-card" id="facebook">
+                    <h4>Facebook<span class="policy-tag restricted">Allowed with Restrictions</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>25-45 years old (slightly more female)</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>Potentially lower CPC; very mature conversion optimization tools.</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>Organic reach is almost non-existent; the audience may be less reactive to "high-energy" content.</p></div>
+                    </div>
+                </article>
+
+                <article class="detail-card" id="telegram">
+                    <h4>Telegram<span class="policy-tag indirect">Indirect Platform</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>25-44 years old (predominantly male)</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>Excellent for creating engaged communities and nurturing leads with tips and promotions.</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>Does not have an ad system for direct, mass-market traffic acquisition.</p></div>
+                    </div>
+                </article>
+
+                <article class="detail-card" id="twitter">
+                    <h4>X (Twitter)<span class="policy-tag restricted">Allowed with Restrictions</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>25-49 years old (predominantly male)</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>Unique contextual targeting (hashtags, real-time conversations); highly aligned male audience.</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>Advertising costs (CPM/CPC) are generally higher; smaller user base.</p></div>
+                    </div>
+                </article>
+
+                <article class="detail-card" id="snapchat">
+                    <h4>Snapchat<span class="policy-tag prohibited">Prohibited</span></h4>
+                    <div class="detail-grid">
+                        <div class="detail-point"><h5>Demographics</h5><p>13-25 years old</p></div>
+                        <div class="detail-point"><h5>Main Advantage</h5><p>None for this objective.</p></div>
+                        <div class="detail-point"><h5>Main Disadvantage</h5><p>Risk of ad account suspension. The policy is strictly against online gambling.</p></div>
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Market analysis generated by AddApps - Clever Advertising 2025.</p>
+    </footer>
+
+</body>
+</html>
