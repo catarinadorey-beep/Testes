@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Culture & Social Media Analysis for iGaming in Brazil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS --- */
+        :root {
+            --text-color: #24282A;
+            --header-color: #231372;
+            --highlight-color: #20E2C8;
+            --graphic-color-1: #231372;
+            --graphic-color-2: #20E2C8;
+            --graphic-color-3: #6106AF;
+            --font-text: 'Figtree', sans-serif;
+            --font-header: 'Barlow', sans-serif;
+            --background-color: #f8f9fa;
+            --card-bg-color: #ffffff;
+            --border-color: #e9ecef;
+        }
+
+        /* --- 2. ESTILOS DE BASE E RESET --- */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-text);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.65;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        main { max-width: 1200px; margin: 2em auto; padding: 0 1.5em; }
+
+        /* --- 3. CABEÇALHO E RODAPÉ --- */
+        .site-header {
+            background-color: var(--card-bg-color);
+            padding: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .site-header svg { height: 70px; width: auto; }
+        .site-footer { text-align: center; padding: 2em; margin-top: 2em; font-size: 0.9em; color: #6c757d; }
+
+        /* --- 4. TIPOGRAFIA --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-header);
+            color: var(--header-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); text-align: center; margin-bottom: 1.5em; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.2rem); padding-bottom: 0.5em; margin-bottom: 1em; border-bottom: 4px solid var(--highlight-color); }
+        h3 { font-size: clamp(1.3rem, 3vw, 1.6rem); margin-top: 1.5em; margin-bottom: 1em; }
+        h4 { font-size: 1.1rem; }
+        p.subtitle { color: #6c757d; margin-top: -1em; margin-bottom: 1.5em; }
+
+        /* --- 5. LAYOUT E COMPONENTES --- */
+        .card { background-color: var(--card-bg-color); padding: 2em; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 2.5em; }
+        .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-top: 1.5em; }
+        .sport-card { background-color: var(--background-color); padding: 1.5em; border-radius: 8px; border: 1px solid var(--border-color); }
+        .sport-card h4 { margin-top: 0; }
+        .chart-container { margin-top: 2em; margin-bottom: 2.5em; }
+
+        /* --- 6. TABELAS --- */
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1em; }
+        table th, table td { padding: 1em 1.2em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-color); }
+        table thead th { font-family: var(--font-header); font-size: 0.85em; background-color: #f1f3f5; color: var(--header-color); text-transform: uppercase; letter-spacing: 0.5px; }
+        table tbody tr:nth-of-type(even) { background-color: rgba(241, 243, 245, 0.4); }
+        .potential { font-weight: bold; }
+        .potential.high { color: #198754; }
+        .potential.medium { color: #fd7e14; }
+        .potential.none { color: #dc3545; }
+
+        /* --- 7. SECÇÃO DE DETALHES DA PLATAFORMA --- */
+        .details-section { margin-top: 2.5em; }
+        .detail-card {
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--graphic-color-1);
+            border-radius: 8px;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        .detail-card h4 {
+            margin-top: 0;
+            margin-bottom: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .policy-tag {
+            font-size: 0.75em;
+            font-family: var(--font-text);
+            padding: 0.3em 0.8em;
+            border-radius: 20px;
+            color: #fff;
+            text-transform: none;
+        }
+        .policy-tag.restricted { background-color: #fd7e14; }
+        .policy-tag.prohibited { background-color: #dc3545; }
+        .policy-tag.indirect { background-color: #0d6efd; }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+        }
+        .detail-point h5 {
+            font-family: var(--font-header);
+            font-size: 0.9em;
+            margin: 0 0 0.5em 0;
+            color: var(--text-color);
+        }
+        .detail-point p { margin: 0; font-size: 0.95em; }
+
+        /* --- 8. DESIGN RESPONSIVO PARA TABELA REGIONAL --- */
+        @media (max-width: 900px) {
+            .regional-table thead { display: none; }
+            .regional-table tr { display: block; margin-bottom: 1.5em; border: 1px solid var(--border-color); border-radius: 8px; padding: 1em; background-color: #fff; }
+            .regional-table td { display: block; text-align: right; padding-left: 50%; position: relative; border-bottom: 1px solid var(--border-color); padding-bottom: 1em; margin-bottom: 1em; }
+            .regional-table td:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+            .regional-table td::before { content: attr(data-label); position: absolute; left: 0; width: 45%; padding-right: 10px; white-space: nowrap; text-align: left; font-family: var(--font-header); color: var(--header-color); font-weight: 700; text-transform: uppercase; font-size: 0.85em; }
+        }
+        
+        /* --- 9. ESTILOS PARA GRÁFICOS REGIONAIS (NOVO) --- */
+        .regional-charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+        .region-card {
+            background-color: var(--background-color);
+            padding: 1.5em 2em;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .region-card h3 {
+            margin-top: 0;
+            border-bottom: 3px solid var(--highlight-color);
+            padding-bottom: 0.5em;
+            font-size: 1.4rem;
+        }
+        .chart-bar-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5em;
+        }
+        .chart-bar-item {
+            margin-bottom: 1em;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+        .chart-bar-label {
+            width: 35%;
+            padding-right: 10px;
+            flex-shrink: 0;
+        }
+        .chart-bar-container {
+            width: 65%;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            height: 22px;
+            overflow: hidden;
+        }
+        .chart-bar {
+            height: 100%;
+            background-color: var(--graphic-color-1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding-right: 8px;
+            white-space: nowrap;
+        }
+        /* Cores alternadas para as barras */
+        .chart-bar-item:nth-child(2n) .chart-bar { background-color: var(--graphic-color-2); color: var(--text-color);}
+        .chart-bar-item:nth-child(3n) .chart-bar { background-color: var(--graphic-color-3); }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 837.7 245.66">
+          <defs>
+            <style> .cls-4 { fill: #24282a; } .cls-3 { fill: url(#Gradiente_sem_nome_10); } </style>
+            <linearGradient id="Gradiente_sem_nome_10" data-name="Gradiente sem nome 10" x1="5622.93" y1="5321.6" x2="5624.11" y2="5322.12" gradientTransform="translate(-1349792.92 1307463.94) scale(240.05 -245.66)" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#231372"/><stop offset="1" stop-color="#20E2C8"/>
+            </linearGradient>
+          </defs>
+          <g id="Camada_1" data-name="Camada 1"><g id="Grupo_149" data-name="Grupo 149"><g id="Grupo_42-2" data-name="Grupo 42-2"><path class="cls-4" d="M452.05,129.69v18.74c0,1.99-1.61,3.6-3.6,3.6h-67.98c-1.99,0-3.6-1.61-3.6-3.6h0V42.63c0-1.99,1.61-3.6,3.6-3.6h20.9c1.99,0,3.6,1.61,3.6,3.6h0v83.46h43.47c1.99,0,3.6,1.61,3.61,3.59h0Z"/><path class="cls-4" d="M821.22,116.37l-2.89-5.46c17.91-12.4,22.38-36.97,9.99-54.88-7.37-10.65-19.49-17-32.44-17h-41.65c-1.99,0-3.6,1.61-3.6,3.6v105.8c0,1.99,1.61,3.6,3.6,3.6h20.81c2.04,0,3.7-1.66,3.7-3.7v-30.56c0-.77.63-1.4,1.4-1.4h8.8c.52,0,1,.29,1.24.75l.23.43,17.21,32.51c.64,1.22,1.91,1.98,3.29,1.98h23.18c2,0,3.62-1.63,3.62-3.63,0-.59-.15-1.17-.42-1.69l-16.06-30.34ZM805.1,85.93c-2.59,4.22-7.18,6.79-12.13,6.78h-14.24v-28.46h14.9v.02c7.86.37,13.93,7.03,13.56,14.89-.11,2.4-.83,4.73-2.09,6.78h0Z"/><path class="cls-4" d="M370.4,140.66c.53.99.24,2.22-.67,2.87-26.46,18.91-63.23,12.79-82.14-13.66-18.91-26.46-12.79-63.23,13.66-82.14,20.48-14.64,47.99-14.64,68.47,0,.91.66,1.19,1.88.67,2.88l-10.45,19.73c-.93,1.76-3.11,2.42-4.87,1.49-.2-.1-.38-.23-.55-.36-13.36-10.51-32.71-8.21-43.22,5.15-10.51,13.36-8.21,32.71,5.15,43.22,11.17,8.79,26.91,8.79,38.08,0,1.55-1.24,3.82-.99,5.06.57.14.17.26.36.37.56l10.44,19.73Z"/><path class="cls-4" d="M487.03,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/><path class="cls-4" d="M691.37,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/><path class="cls-4" d="M656.55,42.1l-42.22,107.61c-.55,1.4-1.9,2.32-3.41,2.32h-18.86c-1.51,0-2.86-.92-3.41-2.32l-42.22-107.61c-.45-1.15.11-2.46,1.27-2.91.26-.1.54-.16.82-.16h24.31c1.54,0,2.92.96,3.45,2.41l25.21,69.57,15.99-44.09c.27-.74-.12-1.55-.85-1.82-.15-.06-.32-.08-.48-.08h-15.82c-1.24,0-2.25-1-2.25-2.25,0-.26.05-.52.13-.77l7.45-20.56c.53-1.45,1.9-2.41,3.44-2.41h45.35c1.24,0,2.25,1.01,2.25,2.25,0,.28-.05.56-.16.82"/></g><g><path class="cls-4" d="M310.46,207.36c0,.24-.09.46-.27.62-.22.17-.5.26-.77.24h-6.76c-.33,0-.66-.11-.92-.32-.28-.21-.49-.5-.61-.82l-1.57-4.57h-12.07l-1.55,4.55c-.09.33-.29.62-.57.82-.28.21-.62.33-.98.32h-6.74c-.28.02-.55-.06-.77-.23-.18-.16-.29-.39-.27-.63,0-.19.05-.37.12-.55l12.72-32.27c.14-.34.38-.64.68-.86.27-.2.6-.31.94-.31h5.02c.34,0,.67.12.94.32.29.21.51.51.63.85l12.69,32.29c.07.17.11.36.12.55M297.1,195.31l-3.6-10.55-3.6,10.55h7.2Z"/><path class="cls-4" d="M338.14,174.64c0-.34.13-.66.37-.89.23-.24.56-.38.89-.37h10.81c3.16-.05,6.28.71,9.06,2.23,2.61,1.44,4.77,3.58,6.23,6.19,1.52,2.76,2.29,5.86,2.24,9.01.05,3.14-.72,6.23-2.24,8.98-1.46,2.6-3.61,4.74-6.23,6.17-2.78,1.51-5.9,2.27-9.06,2.21h-10.81c-.7,0-1.26-.56-1.26-1.26h0v-32.27ZM350.21,199.97c3.23.04,6.21-1.71,7.74-4.55.77-1.42,1.16-3.01,1.14-4.62.02-1.66-.37-3.3-1.14-4.76-1.5-2.87-4.5-4.65-7.74-4.59l-3.43.02v18.5h3.43Z"/><path class="cls-4" d="M425.13,173.56c.18.15.28.38.26.62,0,.2-.04.39-.12.57l-12.72,32.27c-.13.35-.36.65-.65.87-.27.21-.6.32-.94.32h-5.02c-.35,0-.68-.12-.95-.33-.29-.21-.52-.5-.64-.83l-12.67-32.29c-.07-.17-.11-.36-.12-.55,0-.23.09-.46.26-.61.22-.16.49-.25.76-.23h6.76c.34,0,.67.11.94.32.28.21.48.51.58.85l7.55,21,7.67-21.05c.1-.34.31-.63.6-.83.27-.2.59-.31.93-.31h6.76c.27-.02.54.06.76.21"/><path class="cls-4" d="M452.9,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h22.4c.34-.02.68.1.93.33.23.25.35.59.33.93v5.48c.02.34-.1.67-.32.93-.25.24-.59.36-.94.33h-15.12v5.76h11.48c.37-.02.73.1,1.01.35.26.25.39.61.37.97v4.53c.02.35-.12.69-.37.93-.28.24-.64.36-1.01.33h-11.48v5.93h15.12c.47-.03.92.13,1.27.44.32.31.49.74.46,1.18v5.14c.02.34-.11.66-.35.9-.26.23-.6.35-.94.33h-22.85c-.34.02-.67-.09-.93-.32-.23-.25-.36-.58-.33-.92v-32.29Z"/><path class="cls-4" d="M534.29,207.26c0,.51-.4.92-.9.93-.02,0-.03,0-.05,0h-7.12c-.29.02-.58-.06-.82-.23-.27-.24-.48-.52-.63-.85l-5.1-9.81h-3.55v9.62c.02.34-.11.68-.35.93-.26.23-.61.35-.96.33h-6.1c-.34.02-.67-.1-.92-.33-.23-.25-.34-.59-.32-.93v-32.29c-.01-.34.11-.66.35-.9.23-.24.56-.37.89-.36h12.22c2.26-.04,4.49.47,6.5,1.49,1.85.95,3.38,2.42,4.42,4.23,1.09,1.94,1.64,4.14,1.59,6.36.03,2.04-.46,4.06-1.42,5.86-.92,1.71-2.29,3.13-3.96,4.12l6.1,11.31c.1.16.14.34.14.52M516.12,189.85h4.45c.77.01,1.52-.2,2.18-.6.64-.39,1.16-.95,1.51-1.62.37-.69.56-1.46.55-2.24.01-.76-.18-1.51-.55-2.18-.35-.63-.88-1.15-1.51-1.5-.67-.36-1.42-.55-2.18-.53h-4.45v8.67Z"/><path class="cls-4" d="M561.13,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h23.24c.34-.02.68.1.93.33.23.25.35.59.33.93v5.74c.02.35-.1.68-.33.94-.25.24-.58.37-.93.35h-7.31v25.55c.02.35-.1.69-.33.94-.26.23-.6.35-.95.32h-6.1c-.64.06-1.2-.4-1.26-1.04,0-.07,0-.15,0-.22v-25.55h-7.29c-.34.02-.68-.1-.93-.35-.23-.26-.35-.6-.33-.94v-5.74Z"/><path class="cls-4" d="M623.9,207.24c.07.44-.23.86-.68.93-.07.01-.15.01-.22,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.25.9.69,0,.07,0,.14,0,.21v32.94Z"/><path class="cls-4" d="M652.91,204.31c.01-.3.1-.6.26-.86l2.81-5.05c.2-.41.62-.67,1.07-.67.27.01.54.08.79.19,1.47.68,2.99,1.24,4.55,1.68,1.51.41,3.06.61,4.62.61,1.06.03,2.12-.21,3.06-.7.75-.34,1.24-1.07,1.25-1.89,0-.58-.25-1.13-.7-1.5-.6-.49-1.27-.86-2-1.12-.87-.33-2.09-.73-3.66-1.19-2.07-.58-4.08-1.36-6-2.34-1.43-.74-2.65-1.83-3.54-3.18-.87-1.47-1.29-3.15-1.22-4.86-.05-2.05.57-4.07,1.76-5.74,1.2-1.62,2.82-2.88,4.69-3.63,2.01-.83,4.17-1.25,6.35-1.23,1.47,0,2.94.17,4.37.5,1.37.3,2.71.73,4.01,1.26,1.03.42,2.02.93,2.95,1.52.41.21.68.62.71,1.07-.03.32-.13.63-.31.9l-2.83,5.14c-.17.38-.56.62-.98.62-.37-.02-.73-.13-1.05-.31-1.18-.62-2.41-1.14-3.68-1.56-1.23-.37-2.51-.55-3.8-.54-.91-.02-1.81.2-2.6.64-.64.29-1.07.92-1.1,1.62,0,.7.47,1.3,1.41,1.8,1.45.69,2.97,1.25,4.53,1.65,2.14.6,4.22,1.37,6.24,2.3,1.52.71,2.84,1.79,3.83,3.14,1.03,1.52,1.53,3.33,1.45,5.16.04,2.1-.58,4.15-1.79,5.87-1.23,1.71-2.91,3.04-4.86,3.85-2.15.91-4.46,1.36-6.79,1.33-2.35,0-4.68-.31-6.95-.9-2.2-.56-4.31-1.43-6.26-2.6-.38-.19-.61-.58-.62-1"/><path class="cls-4" d="M717.37,207.24c.07.44-.23.86-.68.93-.08.01-.15.01-.23,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.24.9.68.01.07.01.15,0,.22v32.94Z"/><path class="cls-4" d="M778.6,173.61c.17.19.26.44.24.69v32.96c.02.26-.07.51-.25.69-.19.17-.43.25-.68.24h-6.48c-.75,0-1.45-.41-1.81-1.07l-13.38-20.36v20.5c.02.25-.07.51-.25.69-.19.17-.43.25-.68.24h-6.79c-.25.01-.49-.07-.68-.24-.18-.18-.27-.44-.25-.69v-32.95c-.02-.25.07-.51.25-.69.19-.17.43-.25.68-.24h7.03c.75.04,1.42.46,1.79,1.12l12.88,19.15v-19.34c-.02-.25.07-.5.24-.69.18-.17.42-.25.67-.24h6.79c.25-.02.5.07.69.24"/><path class="cls-4" d="M827.49,200.03c.61-.16,1.2-.37,1.76-.66v-6.14c-.01-.34.12-.67.37-.91.24-.23.56-.36.89-.36h5.98c.32,0,.64.13.86.37.23.24.36.56.36.89v11.36c0,.26-.07.51-.19.74-.1.23-.27.42-.48.55-1.63.97-3.4,1.7-5.25,2.14-1.96.55-3.98.85-6.01.88-3.24.03-6.43-.79-9.24-2.4-2.75-1.56-5.04-3.82-6.63-6.55-1.63-2.77-2.47-5.93-2.44-9.15-.04-6.48,3.42-12.47,9.05-15.67,2.81-1.61,6-2.44,9.24-2.41,1.91.02,3.81.34,5.62.94,1.76.51,3.41,1.35,4.86,2.47.33.23.53.62.52,1.02,0,.24-.07.47-.22.67l-3.5,5.26c-.19.32-.53.51-.91.5-.3,0-.59-.1-.81-.31-.78-.65-1.68-1.13-2.64-1.44-.93-.33-1.92-.5-2.91-.51-1.71-.02-3.39.42-4.88,1.26-1.45.82-2.66,2-3.5,3.44-1.71,2.96-1.71,6.61,0,9.57.84,1.44,2.05,2.62,3.5,3.44,1.49.84,3.17,1.28,4.88,1.26.58-.02,1.16-.11,1.72-.27"/></g><g><path class="cls-3" d="M239.71,6.67l-91.78,233.94c-1.2,3.05-4.14,5.05-7.41,5.05h-41c-3.27,0-6.21-2.01-7.41-5.05L.34,6.67C-.64,4.16.59,1.32,3.1.34,3.67.11,4.28,0,4.89,0h52.84c3.35,0,6.34,2.1,7.48,5.25l54.82,151.23,34.75-95.85c.58-1.6-.25-3.37-1.85-3.95-.34-.12-.69-.19-1.05-.18h-34.39c-2.7,0-4.88-2.19-4.88-4.88,0-.57.1-1.13.29-1.66l16.2-44.7c1.14-3.15,4.13-5.25,7.49-5.25h98.59c2.7,0,4.88,2.19,4.88,4.88,0,.61-.11,1.22-.34,1.78"/></g></g></g>
+        </svg>
+    </header>
+
+    <main>
+        <h1>iGaming Market Analysis: Brazil</h1>
+        
+        <section class="card">
+            <h2>Sports Culture & its Connection to the iGaming World</h2>
+            <p>The Brazilian sporting landscape is defined by the absolute cultural dominance of football, a sport that is often described as a national religion. The popularity of other sports is frequently tied to the international success of Brazilian athletes, creating a "win-centric" fan culture. Any sports-related marketing content must begin with football to be considered relevant.</p>
+
+            <h3>The Top 5 Sports of Brazil</h3>
+            <div class="sports-grid">
+                <article class="sport-card">
+                    <h4>Football (Futebol)</h4>
+                    <p>Unequivocally the most popular sport. The men's national team, the Seleção, is a five-time World Cup champion. Clubs like Flamengo and Corinthians command legions of passionate fans.</p>
+                </article>
+                <article class="sport-card">
+                    <h4>Volleyball (Vôlei)</h4>
+                    <p>Firmly established as Brazil's second most popular sport, driven by the sustained success of the national teams, both global powerhouses with multiple Olympic golds.</p>
+                </article>
+                <article class="sport-card">
+                    <h4>Mixed Martial Arts (MMA)</h4>
+                    <p>With deep roots in Brazil through Brazilian Jiu-Jitsu (BJJ), MMA rivals volleyball for the number two spot. Brazilian fighters are consistent stars in the UFC.</p>
+                </article>
+                <article class="sport-card">
+                    <h4>Basketball (Basquete)</h4>
+                    <p>Maintains a solid and consistent following. Interest peaks when the national team performs well in international competitions. The premier league is the NBB.</p>
+                </article>
+                <article class="sport-card">
+                    <h4>Motorsports</h4>
+                    <p>Formula One (F1) holds a special legacy, driven by world champions like Emerson Fittipaldi, Nelson Piquet, and the iconic Ayrton Senna.</p>
+                </article>
+            </div>
+            
+            <h3>Regional Sports Culture & iGaming Connections</h3>
+            <div class="table-container">
+                <table class="regional-table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>State(s)</th>
+                            <th>Cultural Significance & Major Sports</th>
+                            <th>Key Leagues & Events</th>
+                            <th>iGaming & Gambling World Connection</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr> <td data-label="Region">Southeast</td> <td data-label="State(s)">São Paulo</td> <td data-label="Cultural Significance">The nation's financial and sporting hub. Football, Motorsport (F1), elite Volleyball, and top-tier Basketball are culturally vital.</td> <td data-label="Key Leagues & Events">Football: Paulistão; F1: Brazilian GP; Volleyball: Superliga; Basketball: NBB</td> <td data-label="iGaming Connection">The Paulistão is one of the most heavily bet-on state leagues. Major clubs have prominent betting sponsors. NBB and Superliga are growing in-play betting markets.</td> </tr>
+                        <tr> <td data-label="Region">Southeast</td> <td data-label="State(s)">Rio de Janeiro</td> <td data-label="Cultural Significance">Football is a religion centered around the Maracanã. Global birthplace of BJJ and a hub for MMA. Beach sports are iconic.</td> <td data-label="Key Leagues & Events">Football: Carioca (Fla-Flu); Major BJJ & MMA events</td> <td data-label="iGaming Connection">The Carioca drives enormous betting volume. A key market for combat sports betting, with wagers spiking during UFC events featuring fighters from Rio.</td> </tr>
+                        <tr> <td data-label="Region">Southeast</td> <td data-label="State(s)">Minas Gerais</td> <td data-label="Cultural Significance">Defined by the intense Atlético-MG vs. Cruzeiro football rivalry. The undisputed national center for Volleyball.</td> <td data-label="Key Leagues & Events">Football: Campeonato Mineiro; Volleyball: Superliga</td> <td data-label="iGaming Connection">While the football derby is a peak betting event, this is the most important market for volleyball betting. The Superliga final attracts significant wagering.</td> </tr>
+                        <tr> <td data-label="Region">South</td> <td data-label="State(s)">Rio Grande do Sul</td> <td data-label="Cultural Significance">Football culture is defined by the visceral Gre-Nal derby. Futsal is a deeply ingrained cultural sport.</td> <td data-label="Key Leagues & Events">Football: Campeonato Gaúcho (Gre-Nal); Futsal: Liga Gaúcha</td> <td data-label="iGaming Connection">The Gre-Nal is the primary driver of local betting. The strong futsal leagues represent a dedicated, growing niche betting market.</td> </tr>
+                        <tr> <td data-label="Region">South</td> <td data-label="State(s)">Santa Catarina & Paraná</td> <td data-label="Cultural Significance">Strong football rivalries (Athletiba). SC is a hub for Surfing and Futsal, PR has a strong Motorsport tradition.</td> <td data-label="Key Leagues & Events">Football: Catarinense & Paranaense; Futsal: LNF; Surfing: WSL Events</td> <td data-label="iGaming Connection">Beyond football, the LNF is a key market for futsal betting. Surfing events also attract betting on specialized international sites.</td> </tr>
+                        <tr> <td data-label="Region">Northeast</td> <td data-label="State(s)">Bahia, Pernambuco, Ceará</td> <td data-label="Cultural Significance">Football is a tool for regional pride. Derbies like Ba-Vi are massive cultural events. Fan loyalty is exceptionally high.</td> <td data-label="Key Leagues & Events">Football: Copa do Nordeste; State Leagues</td> <td data-label="iGaming Connection">The Copa do Nordeste is arguably the most important regional tournament for the betting industry, inspiring fierce loyalty and high wagering volume.</td> </tr>
+                        <tr> <td data-label="Region">North</td> <td data-label="State(s)">Pará & Amazonas</td> <td data-label="Cultural Significance">In Pará, the Re-Pa football derby is one of the nation's most passionate. In Amazonas, Jiu-Jitsu and MMA have deep cultural roots.</td> <td data-label="Key Leagues & Events">Football: Copa Verde (Re-Pa); Local MMA events</td> <td data-label="iGaming Connection">The Re-Pa derby sees huge local betting interest. Manaus's role as a hub for fighters makes MMA a significant betting driver.</td> </tr>
+                        <tr> <td data-label="Region">Center-West</td> <td data-label="State(s)">Goiás & Mato Grosso</td> <td data-label="Cultural Significance">Football is the primary cultural unifier. The rise of Cuiabá to the top national division has put the region on the sports map.</td> <td data-label="Key Leagues & Events">Football: Copa Verde; State Leagues</td> <td data-label="iGaming Connection">Considered a growth area for betting companies. The focus is almost exclusively on football, with national league matches being the key drivers.</td> </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section class="card">
+            <h2>Análise Regional de Torcidas (Datafolha 2024)</h2>
+            <p>A paixão pelo futebol no Brasil apresenta claras variações regionais. Clubes de Rio de Janeiro e São Paulo possuem alcance nacional, mas a força das equipes locais define o cenário em cada canto do país, impactando diretamente o potencial de engajamento para o mercado de iGaming.</p>
+            <div class="regional-charts-grid">
+                
+                <div class="region-card">
+                    <h3>Sudeste</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 20%;">20%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 15%;">15%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">São Paulo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 8%;">8%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Palmeiras</span><div class="chart-bar-container"><div class="chart-bar" style="width: 8%;">8%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Cruzeiro</span><div class="chart-bar-container"><div class="chart-bar" style="width: 7%;">7%</div></div></li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>Nordeste</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 25%;">25%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 8%;">8%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Bahia</span><div class="chart-bar-container"><div class="chart-bar" style="width: 6%;">6%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Palmeiras</span><div class="chart-bar-container"><div class="chart-bar" style="width: 6%;">6%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Sport</span><div class="chart-bar-container"><div class="chart-bar" style="width: 5%;">5%</div></div></li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>Sul</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item"><span class="chart-bar-label">Grêmio</span><div class="chart-bar-container"><div class="chart-bar" style="width: 23%;">23%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Internacional</span><div class="chart-bar-container"><div class="chart-bar" style="width: 18%;">18%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 9%;">9%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 9%;">9%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Palmeiras</span><div class="chart-bar-container"><div class="chart-bar" style="width: 5%;">5%</div></div></li>
+                    </ul>
+                </div>
+
+                <div class="region-card">
+                    <h3>Norte & Centro-Oeste</h3>
+                    <ul class="chart-bar-list">
+                        <li class="chart-bar-item"><span class="chart-bar-label">Flamengo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 29%;">29%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Corinthians</span><div class="chart-bar-container"><div class="chart-bar" style="width: 11%;">11%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">São Paulo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 7%;">7%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Palmeiras</span><div class="chart-bar-container"><div class="chart-bar" style="width: 6%;">6%</div></div></li>
+                        <li class="chart-bar-item"><span class="chart-bar-label">Remo</span><div class="chart-bar-container"><div class="chart-bar" style="width: 4%;">4%</div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="card">
+            <h2>Social Media Platform Analysis</h2>
+            <p class="subtitle">An analysis of key social media platforms in Brazil for iGaming acquisition campaigns.</p>
+            
+            <div class="chart-container">
+                <h3>Active User Comparison (Millions)</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Active Users (Millions)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>WhatsApp</td><td>169</td></tr>
+                            <tr><td>Instagram</td><td>113.5</td></tr>
+                            <tr><td>Facebook</td><td>109.1</td></tr>
+                            <tr><td>Telegram</td><td>8
