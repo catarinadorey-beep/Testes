@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda – Lançamento Escritório de Malta</title>
+    <title>Agenda – Malta Office Launch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Configurações Globais e de Branding --- */
+        /* --- Global Settings & Branding --- */
         :root {
             --text-color: #24282A;
             --header-color: #231372;
@@ -28,11 +28,11 @@
         body {
             font-family: var(--font-body);
             color: var(--text-color);
-            background-color: #f8f9fa; /* Um cinza muito claro para destacar os cartões brancos */
+            background-color: #f8f9fa; /* A very light grey to make white cards pop */
             line-height: 1.6;
         }
 
-        /* --- Header com o Logo --- */
+        /* --- Header with Logo --- */
         .main-header {
             background-color: #ffffff;
             padding: 1.5em;
@@ -47,7 +47,7 @@
             width: auto;
         }
 
-        /* --- Estrutura Principal e Títulos --- */
+        /* --- Main Structure & Headings --- */
         .container {
             max-width: 900px;
             margin: 3em auto;
@@ -78,7 +78,7 @@
             color: var(--highlight-color);
         }
 
-        /* --- Componente: Cartão (Card) --- */
+        /* --- Component: Card --- */
         .card {
             background: #ffffff;
             border-radius: 12px;
@@ -87,7 +87,7 @@
             margin-bottom: 2.5em;
         }
 
-        /* --- Estilos para listas e notas --- */
+        /* --- Styles for lists and notes --- */
         .notes-list {
             list-style: none;
             padding-left: 0;
@@ -111,7 +111,7 @@
             color: var(--header-color);
         }
 
-        /* --- Componente: Item de Evento Simples (Preparação/Desmontagem) --- */
+        /* --- Component: Simple Event Item (Preparation/Dismantling) --- */
         .event-item {
             display: flex;
             align-items: flex-start;
@@ -150,7 +150,7 @@
         }
 
 
-        /* --- Componente: Linha do Tempo (Timeline) --- */
+        /* --- Component: Timeline --- */
         .timeline {
             position: relative;
             padding-left: 40px; 
@@ -205,7 +205,7 @@
             margin-top: 0.5em;
         }
         
-        /* --- Responsividade para telemóveis --- */
+        /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -291,57 +291,57 @@
         <h1>📅 Agenda <span class="highlight">– Malta Office Launch</span></h1>
 
         <div class="card">
-            <h2><span class="highlight">📋</span> Notas Gerais</h2>
+            <h2><span class="highlight">📋</span> General Notes</h2>
             <ul class="notes-list">
-                <li><strong>Receção:</strong> A receção do edifício principal deve estar aberta com staff presente para guiar os convidados.</li>
-                <li><strong>Bar:</strong> Não pode ser posicionado em frente ou ao lado do palco principal (a equipa do Ministro não o quer visível nas fotos dos discursos).</li>
-                <li><strong>Álcool:</strong> Só deve ser servido após os discursos.</li>
-                <li><strong>Fotos/Vídeos do Ministro:</strong> Devem ser aprovados pela sua equipa antes de serem publicados nas redes sociais.</li>
-                <li><strong>Comunicado de Imprensa:</strong> O comunicado oficial será partilhado primeiro pela equipa do Ministro após o evento; só depois a Clever poderá partilhar o seu.</li>
+                <li><strong>Reception:</strong> The main building reception must be open with staff present to guide guests.</li>
+                <li><strong>Bar:</strong> Cannot be positioned in front of or next to the main stage (the Minister’s team does not want it visible in speech photos).</li>
+                <li><strong>Alcohol:</strong> Must only be served after the speeches.</li>
+                <li><strong>Photos/Videos of the Minister:</strong> Must be approved by his team before posting on social media.</li>
+                <li><strong>Press Release:</strong> The official release will first be shared by the Minister’s team after the event; only then can Clever share its own.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h2><span class="highlight">🛠️</span> Preparação</h2>
+            <h2><span class="highlight">🛠️</span> Preparation</h2>
             <div class="event-item">
                 <div class="event-time">
-                    <span class="date">Quinta, 13 Nov</span>
+                    <span class="date">Thursday, Nov 13</span>
                     <span class="time">07:00 – 07:30</span>
                 </div>
                 <div class="event-description">
-                    <p>Chegada da Kylie e da equipa 242 para montagem técnica, AV, decoração e logística.</p>
+                    <p>Arrival of Kylie and the 242 team for technical, AV, decoration, and logistics setup.</p>
                 </div>
             </div>
             <div class="event-item">
                 <div class="event-time">
-                    <span class="date">Quinta, 13 Nov</span>
+                    <span class="date">Thursday, Nov 13</span>
                     <span class="time">16:00 – 17:30</span>
                 </div>
                 <div class="event-description">
-                    <p>Ensaio do evento: Verificação de som, AV, música, discursos e ensaio do momento "botão vermelho + revelação do logo".</p>
+                    <p>Event Rehearsal: Sound check, AV, music, speeches, and rehearsal of the “red button + logo reveal” moment.</p>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <h2><span class="highlight">🎉</span> Dia do Evento – Sábado, 15 Nov</h2>
+            <h2><span class="highlight">🎉</span> Event Day – Saturday, Nov 15</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-time">09:30</div>
                     <div class="timeline-content">
-                        <p><strong>Chegada dos convidados:</strong> Welcome drinks, canapés, DJ e violino.</p>
-                        <p>Chegada da equipa do Ministro.</p>
+                        <p><strong>Guest arrival:</strong> Welcome drinks, canapés, DJ and violin.</p>
+                        <p>Minister’s team arrival.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-time">10:30</div>
                     <div class="timeline-content">
-                        <p><strong>Chegada do Ministro.</strong></p>
+                        <p><strong>Minister arrives.</strong></p>
                         <ul>
-                            <li>A equipa do Ministro aguardará no piso inferior e notificará 5 minutos antes da chegada.</li>
-                            <li>Alberto ou representantes da Clever irão recebê-lo e acompanhá-lo ao andar de cima.</li>
+                            <li>Minister’s team will wait downstairs and notify us 5 minutes before arrival.</li>
+                            <li>Alberto or Clever reps to greet him and escort him upstairs.</li>
                         </ul>
                     </div>
                 </div>
@@ -349,43 +349,43 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-time">10:35</div>
                     <div class="timeline-content">
-                        <p><strong>Discursos & Abertura Oficial</strong></p>
+                        <p><strong>Speeches & Official Opening</strong></p>
                         <ul>
-                            <li>Natasha ou Andre Borges anunciam e apresentam os oradores.</li>
+                            <li>Natasha or Andre Borges to announce and introduce speakers.</li>
                             <li>Alberto – 5 mins</li>
                             <li>Ivan – 5 mins</li>
-                            <li>Ministro Schembri – 5 mins</li>
-                            <li><strong>Momento de Abertura:</strong> Ministro prime o "grande botão vermelho" → revelação do gráfico/logo no ecrã.</li>
-                            <li>A música de fundo começa imediatamente com os aplausos, seguida pelo serviço de bebidas.</li>
+                            <li>Minister Schembri – 5 mins</li>
+                            <li><strong>Opening Moment:</strong> Minister presses the “big red button” → graphic/logo reveal on the screen.</li>
+                            <li>Background music starts immediately with applause, followed by drinks service.</li>
                         </ul>
                     </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-time">11:00 em diante</div>
+                    <div class="timeline-time">11:00 onwards</div>
                     <div class="timeline-content">
-                        <p>Performance de Saxofone e DJ, networking, brunch e jogos.</p>
+                        <p>Sax and DJ performance, networking, brunch, and games.</p>
                     </div>
                 </div>
                  <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-time">15:00</div>
                     <div class="timeline-content">
-                        <p><strong>Encerramento do bar.</strong></p>
+                        <p><strong>Bar closes.</strong></p>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="card">
-            <h2><span class="highlight">🧹</span> Desmontagem</h2>
+            <h2><span class="highlight">🧹</span> Dismantling</h2>
              <div class="event-item">
                 <div class="event-time">
-                    <span class="date">Sexta, 14 Nov</span>
+                    <span class="date">Friday, Nov 14</span>
                     <span class="time">16:30 – 20:00</span>
                 </div>
                 <div class="event-description">
-                    <p>Desmontagem do evento e finalização.</p>
+                    <p>Event dismantling and wrap-up.</p>
                 </div>
             </div>
         </div>
