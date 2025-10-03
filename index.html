@@ -259,6 +259,66 @@
         .influencer-content strong {
             color: var(--graphic-color-1);
         }
+
+        /* --- 11. STYLES FOR TARGET AUDIENCE SECTION --- */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 1.5em;
+            margin-bottom: 2.5em;
+        }
+        .audience-item {
+            background-color: var(--background-color);
+            padding: 1.5em;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        .audience-item h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+        .audience-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--header-color);
+        }
+        .highlight {
+            font-weight: 700;
+            color: var(--graphic-color-1);
+        }
+        .sweet-spot {
+            border-left: 4px solid var(--highlight-color);
+            padding-left: 1em;
+            margin-left: -1em;
+        }
+        .social-class-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        .class-card {
+            border-left: 5px solid;
+            padding: 1.5em;
+            border-radius: 8px;
+            background-color: var(--background-color);
+        }
+        .class-card.c { border-color: var(--graphic-color-1); }
+        .class-card.b { border-color: var(--graphic-color-2); }
+        .class-card.a { border-color: var(--graphic-color-3); }
+        .class-card h4 { margin-top: 0; }
+        .class-card .reason {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px solid var(--border-color);
+        }
+
     </style>
 </head>
 <body>
@@ -278,6 +338,58 @@
     <main>
         <h1>iGaming Market Analysis: Brazil</h1>
         
+        <section class="card">
+            <h2>Target Audience for Betting in Brazil</h2>
+            <p>The Brazilian bettor does not belong to a single niche but to a broad spectrum democratized by mobile access. However, a core demographic concentrates the vast majority of volume and activity.</p>
+
+            <h3>Key Demographics</h3>
+            <div class="audience-grid">
+                <div class="audience-item">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A2,2 0 0,1 14,4A2,2 0 0,1 12,6A2,2 0 0,1 10,4A2,2 0 0,1 12,2M10.5,7H13.5A2,2 0 0,1 15.5,9V14.5H14V22H10V14.5H8.5V9A2,2 0 0,1 10.5,7Z" /></svg>
+                        Gender
+                    </h4>
+                    <p>Estimates consistently point to about <span class="highlight">80-85% male</span>. Campaigns should primarily target this gender, though the female audience is slowly growing.</p>
+                </div>
+                <div class="audience-item">
+                    <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg>
+                        Age
+                    </h4>
+                    <p>The most active age range is <span class="highlight">25 to 44</span>. This group has financial maturity and grew up with digitalization.</p>
+                    <ul>
+                        <li class="sweet-spot"><strong>25-34 years:</strong> The 'sweet spot' with the highest volume.</li>
+                        <li><strong>35-44 years:</strong> Strong segment with higher purchasing power.</li>
+                        <li><strong>18-24 years:</strong> A fast-growing group influenced by digital creators.</li>
+                    </ul>
+                </div>
+                <div class="audience-item">
+                     <h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" /></svg>
+                        Geographic Location
+                    </h4>
+                    <p>Activity is nationwide, but the <span class="highlight">Southeast region</span> (São Paulo, Rio de Janeiro) concentrates the most volume. However, the <span class="highlight">Northeast</span> has one of the highest engagement and loyalty rates, making it a valuable market.</p>
+                </div>
+            </div>
+
+            <h3>Social Class & Income Profile</h3>
+            <div class="social-class-grid">
+                <div class="class-card c">
+                    <h4>The Engine: Class C (Lower-Middle Class)</h4>
+                    <p>This is by far the largest and most important segment. Most have a monthly family income of up to <span class="highlight">2 minimum wages</span>.</p>
+                    <p class="reason"><strong>Why?</strong> The combination of high smartphone penetration, easy payment methods (PIX), and the view of betting as affordable entertainment with a potential for profit.</p>
+                </div>
+                <div class="class-card b">
+                    <h4>The Valuable Tier: Class B (Upper-Middle Class)</h4>
+                    <p>The second most valuable segment. Though smaller in number, they tend to have a <span class="highlight">higher average deposit value</span> and bet more frequently as a form of leisure.</p>
+                </div>
+                <div class="class-card a">
+                    <h4>The Niche: Class A (Upper Class)</h4>
+                    <p>They represent a <span class="highlight">small fraction</span> of the total bettor volume. Their behavior is more sporadic and does not form the market's foundation.</p>
+                </div>
+            </div>
+        </section>
+
         <section class="card">
             <h2>Sports Culture & its Connection to the iGaming World</h2>
             <p>The Brazilian sporting landscape is defined by the absolute cultural dominance of football, a sport that is often described as a national religion. The popularity of other sports is frequently tied to the international success of Brazilian athletes, creating a "win-centric" fan culture. Any sports-related marketing content must begin with football to be considered relevant.</p>
