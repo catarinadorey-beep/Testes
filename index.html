@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         /* --- 1. GLOBAL SETUP & VARIABLES --- */
         :root {
@@ -69,7 +71,12 @@
         .sports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5em; margin-top: 1.5em; }
         .sport-card { background-color: var(--background-color); padding: 1.5em; border-radius: 8px; border: 1px solid var(--border-color); }
         .sport-card h4 { margin-top: 0; }
-        .chart-container { margin-top: 2em; margin-bottom: 2.5em; }
+        .chart-container { 
+            margin-top: 2em; 
+            margin-bottom: 2.5em;
+            height: 350px; /* Defined height for the chart canvas */
+            position: relative;
+        }
 
         /* --- 6. TABLES --- */
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -556,24 +563,7 @@
             
             <div class="chart-container">
                 <h3>Active User Comparison (Millions)</h3>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Platform</th>
-                                <th>Active Users (Millions)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>WhatsApp</td><td>169</td></tr>
-                            <tr><td>Instagram</td><td>113.5</td></tr>
-                            <tr><td>Facebook</td><td>109.1</td></tr>
-                            <tr><td>Telegram</td><td>80</td></tr>
-                            <tr><td>X (Twitter)</td><td>22.1</td></tr>
-                            <tr><td>Snapchat</td><td>7.6</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <canvas id="userChart"></canvas>
             </div>
 
             <div class="table-container">
@@ -669,14 +659,14 @@
                         <ol>
                             <li><strong>Neymar Jr. (@neymarjr)</strong>: Football superstar. While a global athlete, his Brazilian roots and frequent content about his life, fashion, and social causes make him a massive influencer within Brazil. (Instagram: ~230M+)</li>
                             <li><strong>Ronaldinho Gaúcho (@ronaldinho)</strong>: Retired football legend whose playful personality and nostalgic content keep him highly popular. (Instagram: ~77M+)</li>
-                            <li><strong>Anitta (@anitta)</strong>: Global pop music sensation. Anitta uses her platform to share music, fashion, lifestyle, and often speaks on social and political issues, making her highly influential culturally. (Instagram: ~63M+)</li>
-                            <li><strong>Whindersson Nunes (@whinderssonnunes)</strong>: One of Brazil's most beloved comedians and YouTubers. Known for his relatable humor, sketches, and vlogs, he connects with a vast audience. (Instagram: ~57M+)</li>
-                            <li><strong>Larissa Manoela (@larissamanoela)</strong>: Actress and singer who has successfully transitioned into a powerful lifestyle influencer, known for fashion and daily life content. (Instagram: ~53M+)</li>
-                            <li><strong>Vinícius Jr. (@vinijr)</strong>: Rising global football star for Real Madrid and the Brazilian national team, blending athletic talent with online charisma. (Instagram: ~54M+)</li>
+                            <li><strong>Anitta (@anitta)</strong>: Global pop music sensation. Anitta uses her platform to share music, fashion, lifestyle, and often speaks on social and political issues, making her highly influential culturally. (Instagram: ~64M+)</li>
+                            <li><strong>Whindersson Nunes (@whinderssonnunes)</strong>: One of Brazil's most beloved comedians and YouTubers. Known for his relatable humor, sketches, and vlogs, he connects with a vast audience. (Instagram: ~58M+)</li>
+                            <li><strong>Larissa Manoela (@larissamanoela)</strong>: Actress and singer who has successfully transitioned into a powerful lifestyle influencer, known for fashion and daily life content. (Instagram: ~54M+)</li>
+                            <li><strong>Vinícius Jr. (@vinijr)</strong>: Rising global football star for Real Madrid and the Brazilian national team, blending athletic talent with online charisma. (Instagram: ~53M+)</li>
                             <li><strong>Virgínia Fonseca (@virginia)</strong>: A major lifestyle, fashion, and beauty influencer, particularly known for her family content and entrepreneurial ventures. (Instagram: ~52M+; TikTok: ~40M+)</li>
                             <li><strong>Maisa Silva (@maisa)</strong>: Actress and TV host who has grown into a significant Gen Z icon. Known for her intelligence, humor, and ability to bridge traditional and digital media. (Instagram: ~48M+)</li>
                             <li><strong>Simone Mendes (@simonemendes)</strong>: Popular singer, especially in the Sertanejo genre, with a strong following for her music and personal life updates. (Instagram: ~40M+)</li>
-                            <li><strong>Gkay (@gessicakayane)</strong>: Comedian, actress, and digital personality known for her humor, fashion, and hosting massive parties like the "Farofa da Gkay." (Instagram: ~19M+)</li>
+                            <li><strong>Gkay (@gessicakayane)</strong>: Comedian, actress, and digital personality known for her humor, fashion, and hosting massive parties like the "Farofa da Gkay." (Instagram: ~20M+)</li>
                         </ol>
                     </div>
                 </details>
@@ -712,5 +702,69 @@
         <p>Market analysis generated by AddApps - Clever Advertising 2025.</p>
     </footer>
 
+    <script>
+        const ctx = document.getElementById('userChart');
+        const userChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['WhatsApp', 'Instagram', 'Facebook', 'Telegram', 'X (Twitter)', 'Snapchat'],
+                datasets: [{
+                    label: 'Active Users (Millions)',
+                    data: [169, 113.5, 109.1, 80, 22.1, 7.6],
+                    backgroundColor: [
+                        '#231372', // --graphic-color-1
+                        '#20E2C8', // --graphic-color-2
+                        '#6106AF', // --graphic-color-3
+                        'rgba(35, 19, 114, 0.7)', 
+                        'rgba(32, 226, 200, 0.7)',
+                        'rgba(97, 6, 175, 0.7)'
+                    ],
+                    borderRadius: 4,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                       beginAtZero: true,
+                       grid: { color: '#e9ecef' },
+                       ticks: {
+                           font: { family: "'Figtree', sans-serif" },
+                           color: '#24282A'
+                       }
+                    },
+                    y: {
+                       grid: { display: false },
+                       ticks: {
+                           font: { family: "'Figtree', sans-serif", size: 14 },
+                           color: '#24282A'
+                       }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#24282A',
+                        titleFont: { family: "'Barlow', sans-serif", size: 16, weight: 'bold' },
+                        bodyFont: { family: "'Figtree', sans-serif", size: 14 },
+                        padding: 12,
+                        cornerRadius: 6,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.x + ' Million Users';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
