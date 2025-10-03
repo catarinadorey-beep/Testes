@@ -205,6 +205,53 @@
         .chart-bar-item:nth-child(5n) .chart-bar { background-color: var(--graphic-color-2); opacity: 0.7; }
         .chart-bar-item:nth-child(6n) .chart-bar { background-color: var(--graphic-color-3); opacity: 0.7; }
 
+        /* --- 10. STYLES FOR INFLUENCER ACCORDION --- */
+        .influencer-accordion details {
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+        .influencer-accordion summary {
+            font-family: var(--font-header);
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            color: var(--header-color);
+            text-transform: uppercase;
+            padding: 1em 1.5em;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .influencer-accordion summary::after {
+            content: '+';
+            font-size: 1.8rem;
+            font-weight: normal;
+            transition: transform 0.2s ease-in-out;
+            color: var(--highlight-color);
+        }
+        .influencer-accordion details[open] > summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .influencer-content {
+            padding: 0 1.5em 1.5em 1.5em;
+        }
+        .influencer-content ol {
+            padding-left: 20px;
+        }
+        .influencer-content li {
+            margin-bottom: 1em;
+        }
+        .influencer-content h4 {
+            margin-top: 2em;
+            border-left: 4px solid var(--highlight-color);
+            padding-left: 0.8em;
+        }
+        .influencer-content strong {
+            color: var(--graphic-color-1);
+        }
     </style>
 </head>
 <body>
@@ -610,6 +657,55 @@
                 
             </div>
         </section>
+
+        <section class="card">
+            <h2>Top Brazilian Influencers for iGaming Partnerships</h2>
+            <p>Engaging top influencers is a key strategy for reaching a broad and dedicated audience in Brazil. The following lists break down influencers by their reach and niche, offering a guide for potential partnerships.</p>
+            <div class="influencer-accordion">
+                <details>
+                    <summary>Mega-Influencers (10M+ Followers)</summary>
+                    <div class="influencer-content">
+                        <p>These are often crossover celebrities with massive, broad appeal across multiple demographics.</p>
+                        <ol>
+                            <li><strong>Neymar Jr. (@neymarjr)</strong>: Football superstar. While a global athlete, his Brazilian roots and frequent content about his life, fashion, and social causes make him a massive influencer within Brazil. (Instagram: ~230M+)</li>
+                            <li><strong>Ronaldinho Gaúcho (@ronaldinho)</strong>: Retired football legend whose playful personality and nostalgic content keep him highly popular. (Instagram: ~77M+)</li>
+                            <li><strong>Anitta (@anitta)</strong>: Global pop music sensation. Anitta uses her platform to share music, fashion, lifestyle, and often speaks on social and political issues, making her highly influential culturally. (Instagram: ~64M+)</li>
+                            <li><strong>Whindersson Nunes (@whinderssonnunes)</strong>: One of Brazil's most beloved comedians and YouTubers. Known for his relatable humor, sketches, and vlogs, he connects with a vast audience. (Instagram: ~58M+)</li>
+                            <li><strong>Larissa Manoela (@larissamanoela)</strong>: Actress and singer who has successfully transitioned into a powerful lifestyle influencer, known for fashion and daily life content. (Instagram: ~54M+)</li>
+                            <li><strong>Vinícius Jr. (@vinijr)</strong>: Rising global football star for Real Madrid and the Brazilian national team, blending athletic talent with online charisma. (Instagram: ~53M+)</li>
+                            <li><strong>Virgínia Fonseca (@virginia)</strong>: A major lifestyle, fashion, and beauty influencer, particularly known for her family content and entrepreneurial ventures. (Instagram: ~52M+; TikTok: ~40M+)</li>
+                            <li><strong>Maisa Silva (@maisa)</strong>: Actress and TV host who has grown into a significant Gen Z icon. Known for her intelligence, humor, and ability to bridge traditional and digital media. (Instagram: ~48M+)</li>
+                            <li><strong>Simone Mendes (@simonemendes)</strong>: Popular singer, especially in the Sertanejo genre, with a strong following for her music and personal life updates. (Instagram: ~40M+)</li>
+                            <li><strong>Gkay (@gessicakayane)</strong>: Comedian, actress, and digital personality known for her humor, fashion, and hosting massive parties like the "Farofa da Gkay." (Instagram: ~20M+)</li>
+                        </ol>
+                    </div>
+                </details>
+                <details>
+                    <summary>Other Highly Influential Personalities & Niches</summary>
+                    <div class="influencer-content">
+                        <h4>Comedians & Skit Creators</h4>
+                        <p>Beyond Whindersson Nunes and Gkay, people like <strong>Carlinhos Maia (@carlinhosmaiaof)</strong> continue to be immensely popular for their daily life skits and community engagement.</p>
+                        
+                        <h4>Beauty & Fashion</h4>
+                        <p><strong>Mari Maria (@marimaria)</strong> and <strong>Franciny Ehlke (@francinyehlke)</strong> remain top-tier beauty gurus with their makeup tutorials and product lines. <strong>Jade Picon (@jadepicon)</strong> (actress/influencer) and <strong>Marina Ruy Barbosa (@marinaruybarbosa)</strong> (actress/entrepreneur) are also strong in fashion.</p>
+                        
+                        <h4>Fitness & Wellness</h4>
+                        <p><strong>Gracyanne Barbosa (@graoficial)</strong> and <strong>Renato Cariani (@renato_cariani)</strong> are prominent figures in the fitness world, inspiring millions with their routines and lifestyle.</p>
+                        
+                        <h4>Lifestyle & Family</h4>
+                        <p><strong>Viih Tube (@viihtube)</strong> and <strong>Giovanna Ewbank (@gioewbank)</strong> share family life, motherhood, and lifestyle content that resonates widely.</p>
+                        
+                        <h4>Spiritual/Motivational</h4>
+                        <p><strong>Bispo Bruno Leonardo</strong> is a pastor with a massive online following for his daily devotionals and sermons.</p>
+                        
+                        <h4>TikTok Stars (Emerging & Dominant)</h4>
+                        <p>Besides the cross-platform stars, TikTok has its own unique top creators like <strong>Camila Pudim (@camilapudim)</strong> (comedy) and <strong>Vanessa Lopes (@vanessalopesr)</strong> (dance/lifestyle), who often gain massive fame directly from the platform. <strong>Açucena Guirra (@sucss.s)</strong> is also a rapidly growing TikTok influencer.</p>
+                    </div>
+                </details>
+            </div>
+            <p style="margin-top: 1.5em; font-size: 0.9em; color: #6c757d;">When considering partnerships, it's important to look beyond just follower counts and assess <strong>engagement rates</strong>, <strong>audience demographics</strong>, and <strong>brand alignment</strong> for the best results in the Brazilian market.</p>
+        </section>
+        
     </main>
 
     <footer class="site-footer">
