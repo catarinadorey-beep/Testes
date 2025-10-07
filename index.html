@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- General Settings & Branding --- */
@@ -97,6 +97,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Important for special cards */
         }
 
         .proposal-card:hover {
@@ -112,7 +113,6 @@
             margin-bottom: 1em;
         }
         
-        /* Style for the "Headline Idea" */
         .proposal-card blockquote {
             margin: 0 0 1.5em 0;
             padding: 1em;
@@ -129,6 +129,88 @@
             margin-bottom: 1em;
             flex-grow: 1; 
         }
+
+        /* --- SPECIAL CARD STYLES --- */
+
+        /* Card 10: Playstation Landing Page Visual Mockup */
+        #playstation-card {
+            background: linear-gradient(rgba(35, 19, 114, 0.85), rgba(35, 19, 114, 0.85)), url(https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80) center/cover;
+            color: #ffffff;
+            justify-content: center;
+            text-align: center;
+        }
+        #playstation-card h3, #playstation-card blockquote {
+            color: #ffffff;
+        }
+        #playstation-card h3 {
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+        #playstation-card blockquote {
+            border-left-color: var(--highlight-color);
+            background-color: rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+        }
+        .promo-code {
+            background-color: var(--highlight-color);
+            color: var(--header-color);
+            font-family: var(--font-header);
+            padding: 0.8em 1.5em;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 1em;
+            display: inline-block;
+            border: 2px solid var(--highlight-color);
+        }
+
+        /* Card 11: Spin Wheel Visual Mockup */
+        .spin-wheel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1em 0;
+            min-height: 180px;
+        }
+        .spin-wheel {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+            background: conic-gradient(
+                var(--header-color) 0deg 60deg,
+                var(--highlight-color) 60deg 120deg,
+                var(--accent-color-1) 120deg 180deg,
+                var(--header-color) 180deg 240deg,
+                var(--highlight-color) 240deg 300deg,
+                var(--accent-color-1) 300deg 360deg
+            );
+            border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .spin-wheel::before { /* Center circle */
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+        }
+        .spin-wheel::after { /* Pointer */
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid var(--text-color);
+        }
+
 
     </style>
 </head>
@@ -240,6 +322,28 @@
                 <h3>9. Risk-Free Bet (e.g., R$10 With No Risk)</h3>
                 <blockquote>Your First R$10 Bet is On Us.</blockquote>
                 <p>"Place your first bet with total confidence. Sign up and make a deposit, then place a bet of up to R$10 on any market. If your bet wins, you keep the profits. If it loses, we'll refund your stake in full as a free bet. It’s the perfect way to make your first play completely risk-free."</p>
+            </div>
+
+            <div class="proposal-card" id="playstation-card">
+                <h3>10. Playstation Landing Page</h3>
+                <blockquote>Your Next Big Win Could Be a PS5!</blockquote>
+                <p>"Level up your gaming setup! For a limited time, new users who sign up with a specific code and make a first deposit will be automatically entered into our exclusive prize draw to win the latest PlayStation."</p>
+                <div class="promo-code">CODE: PLAYWIN</div>
+            </div>
+
+            <div class="proposal-card">
+                <h3>11. Spin Landing Page</h3>
+                <blockquote>Spin to Win Your Welcome Bonus!</blockquote>
+                <div class="spin-wheel-container">
+                    <div class="spin-wheel"></div>
+                </div>
+                <p>"Feeling lucky? Sign up and make your first deposit to get one free spin on our Bonus Wheel! Every spin is a guaranteed winner, with prizes like Free Bets, Deposit Matches, and more."</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>12. Tips Telegram</h3>
+                <blockquote>Join Our Exclusive Telegram for Expert Tips.</blockquote>
+                <p>"Gain an edge with free, daily tips from our AI specialist. Join our exclusive Telegram channel and receive expert insights and analysis delivered straight to your phone. No deposit required. Just click to join and start making smarter bets today!"</p>
             </div>
 
         </div>
