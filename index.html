@@ -179,14 +179,14 @@
             font-weight: 900;
             color: #ffffff;
             border: none;
-            line-height: 1.2; /* Ajuste de espaçamento de linha */
+            line-height: 1.3; /* AUMENTADO para dar espaço entre linhas */
             margin: 0 0 0.5em 0;
         }
 
         .special-card h3 .highlight {
             background-color: var(--highlight-color);
             color: var(--header-color);
-            padding: 0.2em 0.3em; /* Mais espaçamento vertical e horizontal */
+            padding: 0.05em 0.3em; /* PADDING VERTICAL REDUZIDO */
         }
         
         .special-card p {
@@ -277,10 +277,11 @@
             border: 5px solid #fff;
         }
         
-        /* Telegram SVG logo */
-        #telegram-card .visual-content svg {
-            width: 180px; /* Ajuste de tamanho */
-            height: auto;
+        /* Telegram Image Logo */
+        .telegram-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
         }
 
         /* Responsive adjustments for special cards */
@@ -292,15 +293,15 @@
             }
             .special-card .text-content {
                 padding-right: 0;
-                order: 2; /* Text comes after visual */
+                order: 2;
             }
              .special-card .visual-content {
-                order: 1; /* Visual comes first */
+                order: 1;
                 margin-bottom: 2em;
             }
             #playstation-card {
-                flex-direction: column-reverse; /* Text first is better for this one */
-                 align-items: center;
+                flex-direction: column-reverse;
+                align-items: center;
             }
         }
     </style>
@@ -395,10 +396,7 @@
                     <a href="#" class="special-card-btn">JOIN THE CHANNEL</a>
                 </div>
                 <div class="visual-content">
-                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
-                        <title>Telegram</title>
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.17.91-.494 1.202-.82 1.23-.696.06-1.225-.46-1.9-1.002-1.03-1.03-1.622-1.622-2.652-2.652-.994-.994-.467-1.545.24-2.291L15.09 9.07c.21-.19.42-.38.08-.66-.34-.28-.71-.13-.99.08L9.13 12.35l-2.545-.79c-.994-.31-1.782-.61-1.782-1.29 0-.52.49-1.02 1.48-1.42l9.64-3.63Z"/>
-                    </svg>
+                    <img src="4de86af47732c228c3a9fbb3817c9dce.webp" alt="Telegram Logo" class="telegram-logo">
                 </div>
             </div>
 
