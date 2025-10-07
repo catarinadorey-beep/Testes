@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda – Malta Office Launch</title>
+    <title>Bonus & Promotion Proposals | Pickswise Partners</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        /* --- Global Settings & Branding --- */
+        /* --- General Settings & Branding --- */
         :root {
             --text-color: #24282A;
             --header-color: #231372;
@@ -19,216 +20,121 @@
             --font-header: 'Barlow', sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            margin: 0;
             font-family: var(--font-body);
+            background-color: #f8f9fa;
             color: var(--text-color);
-            background-color: #f8f9fa; /* A very light grey to make white cards pop */
             line-height: 1.6;
         }
 
-        /* --- Header with Logo --- */
-        .main-header {
+        /* --- Header & Logo --- */
+        .site-header {
             background-color: #ffffff;
             padding: 1.5em;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-height: 70px;
+            box-sizing: border-box;
         }
 
-        .main-header svg {
-            height: 70px;
+        .site-header svg {
+            height: 60px;
             width: auto;
         }
 
-        /* --- Main Structure & Headings --- */
-        .container {
-            max-width: 900px;
-            margin: 3em auto;
-            padding: 0 20px;
+        /* --- Main Content --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3em 1.5em;
         }
-        
-        h1, h2 {
+
+        h1, h2, h3 {
             font-family: var(--font-header);
-            font-weight: 700;
+            color: var(--header-color);
             text-transform: uppercase;
-            color: var(--header-color);
-            margin-bottom: 1em;
+            font-weight: 700;
         }
 
-        h1 {
+        .main-title {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
+            font-size: 2.5rem;
+            margin-bottom: 0.5em;
         }
 
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 3px solid #f0f0f0;
-            padding-bottom: 0.5em;
-        }
-
-        h1 .highlight, h2 .highlight {
-            color: var(--highlight-color);
-        }
-
-        /* --- Component: Card --- */
-        .card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(36, 40, 42, 0.08);
-            padding: 2em;
-            margin-bottom: 2.5em;
-        }
-
-        /* --- Styles for lists and notes --- */
-        .notes-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .notes-list li {
-            padding-left: 1.5em;
-            position: relative;
-            margin-bottom: 1em;
-        }
-
-        .notes-list li::before {
-            content: '📌';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--highlight-color);
-        }
-
-        .notes-list strong {
-            color: var(--header-color);
-        }
-
-        /* --- Component: Simple Event Item (Preparation/Dismantling) --- */
-        .event-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5em;
-            padding: 1em 0;
-            border-bottom: 1px solid #eee;
-        }
-        .event-item:last-child {
-            border-bottom: none;
-        }
-
-        .event-time {
+        .main-title .highlight {
             background-color: var(--highlight-color);
-            color: var(--header-color);
-            font-family: var(--font-header);
-            font-weight: 700;
-            padding: 0.5em 1em;
-            border-radius: 6px;
+            padding: 0.05em 0.2em;
+        }
+
+        .intro-text {
             text-align: center;
-            min-width: 150px;
+            max-width: 800px;
+            margin: 0 auto 3.5em auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* --- Proposal Cards Grid --- */
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2em;
+        }
+
+        .proposal-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5em 2em;
+            box-shadow: 0 5px 15px rgba(36,40,42,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(36,40,42,0.12);
+        }
+
+        .proposal-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
         }
         
-        .event-time .date {
-            display: block;
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
-        .event-time .time {
-            display: block;
-            font-size: 1.2em;
-        }
-        
-        .event-description p {
-            margin: 0;
-        }
-
-
-        /* --- Component: Timeline --- */
-        .timeline {
-            position: relative;
-            padding-left: 40px; 
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 15px;
-            bottom: 15px;
-            width: 4px;
-            background: #eef1f2;
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2em;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -38px;
-            top: 5px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--header-color);
-            border: 4px solid var(--highlight-color);
-        }
-
-        .timeline-time {
-            font-family: var(--font-header);
-            font-weight: 700;
+        /* Style for the "Headline Idea" */
+        .proposal-card blockquote {
+            margin: 0 0 1.5em 0;
+            padding: 1em;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--highlight-color);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.05rem;
             color: var(--header-color);
-            font-size: 1.4em;
-            margin-bottom: 0.25em;
         }
 
-        .timeline-content p, .timeline-content ul {
-            margin: 0;
-        }
-        
-        .timeline-content ul {
-            list-style-position: inside;
-            padding-left: 0.5em;
-            margin-top: 0.5em;
-        }
-        
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            .event-item {
-                flex-direction: column;
-                gap: 0.8em;
-                align-items: flex-start;
-            }
-            .event-time {
-                min-width: unset;
-                width: 100%;
-            }
+        .proposal-card p {
+            margin-top: 0;
+            margin-bottom: 1em;
+            flex-grow: 1; /* Makes sure cards in the same row have the same height */
         }
 
     </style>
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="site-header">
         <svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 837.7 245.66">
           <defs>
             <style>
@@ -286,110 +192,70 @@
         </svg>
     </header>
 
-    <main class="container">
-
-        <h1>📅 Agenda <span class="highlight">– Malta Office Launch</span></h1>
-
-        <div class="card">
-            <h2><span class="highlight">📋</span> General Notes</h2>
-            <ul class="notes-list">
-                <li><strong>Reception:</strong> The main building reception must be open with staff present to guide guests.</li>
-                <li><strong>Bar:</strong> Cannot be positioned in front of or next to the main stage (the Minister’s team does not want it visible in speech photos).</li>
-                <li><strong>Alcohol:</strong> Must only be served after the speeches.</li>
-                <li><strong>Photos/Videos of the Minister:</strong> Must be approved by his team before posting on social media.</li>
-                <li><strong>Press Release:</strong> The official release will first be shared by the Minister’s team after the event; only then can Clever share its own.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2><span class="highlight">🛠️</span> Preparation</h2>
-            <div class="event-item">
-                <div class="event-time">
-                    <span class="date">Thursday, Nov 13</span>
-                    <span class="time">07:00 – 07:30</span>
-                </div>
-                <div class="event-description">
-                    <p>Arrival of Kylie and the 242 team for technical, AV, decoration, and logistics setup.</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <div class="event-time">
-                    <span class="date">Thursday, Nov 13</span>
-                    <span class="time">16:00 – 17:30</span>
-                </div>
-                <div class="event-description">
-                    <p>Event Rehearsal: Sound check, AV, music, speeches, and rehearsal of the “red button + logo reveal” moment.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2><span class="highlight">🎉</span> Event Day – Saturday, Nov 15</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-time">09:30</div>
-                    <div class="timeline-content">
-                        <p><strong>Guest arrival:</strong> Welcome drinks, canapés, DJ and violin.</p>
-                        <p>Minister’s team arrival.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-time">10:30</div>
-                    <div class="timeline-content">
-                        <p><strong>Minister arrives.</strong></p>
-                        <ul>
-                            <li>Minister’s team will wait downstairs and notify us 5 minutes before arrival.</li>
-                            <li>Alberto or Clever reps to greet him and escort him upstairs.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-time">10:35</div>
-                    <div class="timeline-content">
-                        <p><strong>Speeches & Official Opening</strong></p>
-                        <ul>
-                            <li>Natasha or Andre Borges to announce and introduce speakers.</li>
-                            <li>Alberto – 5 mins</li>
-                            <li>Ivan – 5 mins</li>
-                            <li>Minister Schembri – 5 mins</li>
-                            <li><strong>Opening Moment:</strong> Minister presses the “big red button” → graphic/logo reveal on the screen.</li>
-                            <li>Background music starts immediately with applause, followed by drinks service.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-time">11:00 onwards</div>
-                    <div class="timeline-content">
-                        <p>Sax and DJ performance, networking, brunch, and games.</p>
-                    </div>
-                </div>
-                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-time">15:00</div>
-                    <div class="timeline-content">
-                        <p><strong>Bar closes.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <main class="main-container">
         
-        <div class="card">
-            <h2><span class="highlight">🧹</span> Dismantling</h2>
-             <div class="event-item">
-                <div class="event-time">
-                    <span class="date">Friday, Nov 14</span>
-                    <span class="time">16:30 – 20:00</span>
-                </div>
-                <div class="event-description">
-                    <p>Event dismantling and wrap-up.</p>
-                </div>
-            </div>
-        </div>
+        <h1 class="main-title">Bonus & Promotion Proposals <span class="highlight">for Pickswise Partners</span></h1>
+        <p class="intro-text">
+            Here is a selection of user-facing bonus descriptions designed for Meta ad campaigns. Each concept is crafted to be concise, compelling, and clear, encouraging new user acquisition.
+        </p>
 
+        <div class="proposals-grid">
+
+            <div class="proposal-card">
+                <h3>1. Refer a Friend</h3>
+                <blockquote>Share the Action, Share the Reward!</blockquote>
+                <p>"Love the thrill of the game? Invite your friends to join! When your friend signs up and makes their first deposit, you'll both receive an exclusive bonus. It's a win-win: you get extra funds to play with, and they get to join the action. Start referring today!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>2. Exclusive Promo</h3>
+                <blockquote>Double Your Deposit, Double Your Power!</blockquote>
+                <p>"Make your first move a big one. Sign up today and we'll match your first deposit, instantly doubling your bankroll. Whether you deposit $10 or $100, you'll get double the funds to bet on your favorite sports. Don't miss this exclusive offer to maximize your betting power from the start."</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>3. Voucher Offer</h3>
+                <blockquote>Your Welcome Voucher Awaits.</blockquote>
+                <p>"Get rewarded from the moment you join. Simply create your account and make your first deposit to unlock a special voucher. Use it to place a bet on any market you choose. It's our way of saying thank you for joining the community. Sign up, deposit, and claim your reward!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>4. Free Bet at Registration</h3>
+                <blockquote>A Free Bet is Waiting for You.</blockquote>
+                <p>"Get in the game without touching your wallet. Just for signing up, we'll give you a Free Bet to place on an upcoming game. It’s the perfect way to explore our markets and score a win on the house. Create your account in minutes and your Free Bet will be ready and waiting."</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>5. Odds Boost</h3>
+                <blockquote>Get Exclusive Odds on the Big Game!</blockquote>
+                <p>"Ready for tonight's game? We're giving new users a massive Odds Boost on [Team X vs. Team Y]. Sign up and make a deposit to unlock this special, enhanced price. Get more value from your very first bet and turn a likely outcome into a huge win. This is a limited-time offer for new players only!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>6. No Deposit Bonus</h3>
+                <blockquote>Get [Amount] to Bet With – No Deposit Needed!</blockquote>
+                <p>"That's right, we're giving you [e.g., $10] completely free just for creating an account. No deposit, no strings attached. Use your bonus to place a bet on any sport you like. Experience the excitement and start building your bankroll entirely on us. Sign up now and claim your free bonus!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>7. VIP Club</h3>
+                <blockquote>You Play, We Pay. Welcome to the VIP Club.</blockquote>
+                <p>"Your loyalty deserves to be rewarded. With our VIP Club, every bet you place helps you level up. As you climb the tiers, you'll unlock bigger and better rewards, including exclusive bonuses, free bets, and personalized offers. The more you play, the more we give back. Start your journey to VIP status today!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>8. Random Bonus (e.g., $1,000 Prize Draw)</h3>
+                <blockquote>Your Deposit Could Win You $1,000!</blockquote>
+                <p>"This week, your first deposit is more than just a deposit—it's your entry ticket to win a massive $1,000 bonus! Simply sign up, fund your account, and you'll be automatically entered into the prize draw. Imagine what you could do with a $1,000 bankroll. Make your first deposit today for a chance to win big!"</p>
+            </div>
+
+            <div class="proposal-card">
+                <h3>9. Risk-Free Bet (e.g., $10 With No Risk)</h3>
+                <blockquote>Your First $10 Bet is On Us.</blockquote>
+                <p>"Place your first bet with total confidence. Sign up and make a deposit, then place a bet of up to $10 on any market. If your bet wins, you keep the profits. If it loses, we'll refund your stake in full as a free bet. It’s the perfect way to make your first play completely risk-free."</p>
+            </div>
+
+        </div>
     </main>
 
 </body>
