@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;900&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         /* --- General Settings & Branding --- */
@@ -49,7 +49,7 @@
             width: auto;
         }
 
-        /* --- Main Content --- */
+        /* --- Main Content & Typography --- */
         .main-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -81,8 +81,17 @@
             font-size: 1.1rem;
             color: #555;
         }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 4em;
+            margin-bottom: 1.5em;
+            border-top: 1px solid #ddd;
+            padding-top: 1.5em;
+        }
 
-        /* --- Proposal Cards Grid --- */
+        /* --- Standard Cards Grid --- */
         .proposals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -97,7 +106,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Important for special cards */
+            overflow: hidden;
         }
 
         .proposal-card:hover {
@@ -130,44 +139,78 @@
             flex-grow: 1; 
         }
 
-        /* --- SPECIAL CARD STYLES --- */
+        /* --- SPECIAL CAMPAIGNS SECTION --- */
 
-        /* Card 10: Playstation Landing Page Visual Mockup */
+        .special-proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2em;
+        }
+        
+        /* Card 10: Playstation Landing Page Mockup */
         #playstation-card {
-            background: linear-gradient(rgba(35, 19, 114, 0.85), rgba(35, 19, 114, 0.85)), url(https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80) center/cover;
+            grid-column: 1 / -1; /* Makes the card span full width */
+            min-height: 400px;
+            padding: 3em;
+            background: linear-gradient(75deg, rgba(10, 5, 40, 0.9) 0%, rgba(35, 19, 114, 0.7) 100%), url(https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=1200&q=80) center/cover;
             color: #ffffff;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
         }
-        #playstation-card h3, #playstation-card blockquote {
-            color: #ffffff;
+        
+        #playstation-card .content-wrapper {
+             max-width: 50%;
         }
+
         #playstation-card h3 {
-            border-bottom-color: rgba(255,255,255,0.3);
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            border: none;
+            line-height: 1.1;
+            margin: 0;
         }
-        #playstation-card blockquote {
-            border-left-color: var(--highlight-color);
-            background-color: rgba(0,0,0,0.2);
+        
+        #playstation-card h3 .highlight {
+            background-color: var(--highlight-color);
+            color: var(--header-color);
+            padding: 0.1em 0.2em;
+        }
+
+        #playstation-card p {
             font-size: 1.2rem;
+            margin-top: 1em;
+            color: #eee;
+            max-width: 500px;
         }
-        .promo-code {
+        
+        .promo-code-btn {
             background-color: var(--highlight-color);
             color: var(--header-color);
             font-family: var(--font-header);
-            padding: 0.8em 1.5em;
+            padding: 0.8em 2em;
             border-radius: 8px;
             font-weight: 700;
-            margin-top: 1em;
+            font-size: 1.1rem;
+            margin-top: 1.5em;
             display: inline-block;
-            border: 2px solid var(--highlight-color);
+            text-decoration: none;
+            transition: background-color 0.2s ease;
         }
 
-        /* Card 11: Spin Wheel Visual Mockup */
+        .promo-code-btn:hover {
+            background-color: #fff;
+        }
+
+        /* Card 11: Animated Spin Wheel */
         .spin-wheel-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1em 0;
+            padding: 1.5em 0;
             min-height: 180px;
         }
         .spin-wheel {
@@ -185,7 +228,14 @@
             );
             border: 5px solid #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            animation: spin 5s linear infinite;
         }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .spin-wheel::before { /* Center circle */
             content: '';
             position: absolute;
@@ -210,7 +260,18 @@
             border-right: 15px solid transparent;
             border-bottom: 25px solid var(--text-color);
         }
-
+        
+        /* Responsive adjustment for PS5 card text */
+        @media (max-width: 768px) {
+            #playstation-card {
+                padding: 2em;
+                align-items: center;
+                text-align: center;
+            }
+            #playstation-card .content-wrapper {
+                max-width: 100%;
+            }
+        }
 
     </style>
 </head>
@@ -229,7 +290,7 @@
             </linearGradient>
           </defs>
           <g id="Camada_1-2" data-name="Camada 1">
-            <g>
+             <g>
               <g>
                 <path class="cls-4" d="M452.05,129.69v18.74c0,1.99-1.61,3.6-3.6,3.6h-67.98c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h20.9c1.99,0,3.6,1.61,3.6,3.6v83.46h43.47c1.99,0,3.6,1.61,3.61,3.59h0Z"/>
                 <path class="cls-4" d="M821.22,116.37l-2.89-5.46c17.91-12.4,22.38-36.97,9.99-54.88-7.37-10.65-19.49-17-32.44-17h-41.65c-1.99,0-3.6,1.61-3.6,3.6v105.8c0,1.99,1.61,3.6,3.6,3.6h20.81c2.04,0,3.7-1.66,3.7-3.7v-30.56c0-.77.63-1.4,1.4-1.4h8.8c.52,0,1,.29,1.24.75l.23.43,17.21,32.51c.64,1.22,1.91,1.98,3.29,1.98h23.18c2,0,3.62-1.63,3.62-3.63,0-.59-.15-1.17-.42-1.69l-16.06-30.34ZM805.1,85.93c-2.59,4.22-7.18,6.79-12.13,6.78h-14.24v-28.46h14.9v.02c7.86.37,13.93,7.03,13.56,14.89-.11,2.4-.83,4.73-2.09,6.78h0Z"/>
@@ -269,84 +330,82 @@
         </p>
 
         <div class="proposals-grid">
-
             <div class="proposal-card">
                 <h3>1. Refer a Friend</h3>
                 <blockquote>Share the Action, Share the Reward!</blockquote>
                 <p>"Love the thrill of the game? Invite your friends to join! When your friend signs up and makes their first deposit, you'll both receive an exclusive bonus. It's a win-win: you get extra funds to play with, and they get to join the action. Start referring today!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>2. Exclusive Promo</h3>
                 <blockquote>Double Your Deposit, Double Your Power!</blockquote>
                 <p>"Make your first move a big one. Sign up today and we'll match your first deposit, instantly doubling your bankroll. Whether you deposit R$10 or R$100, you'll get double the funds to bet on your favorite sports. Don't miss this exclusive offer to maximize your betting power from the start."</p>
             </div>
-
             <div class="proposal-card">
                 <h3>3. Voucher Offer</h3>
                 <blockquote>Your Welcome Voucher Awaits.</blockquote>
                 <p>"Get rewarded from the moment you join. Simply create your account and make your first deposit to unlock a special voucher. Use it to place a bet on any market you choose. It's our way of saying thank you for joining the community. Sign up, deposit, and claim your reward!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>4. Free Bet at Registration</h3>
                 <blockquote>A FreeBet is Waiting for You.</blockquote>
                 <p>"Get in the game without touching your wallet. Just for signing up, we'll give you a Free Bet to place on an upcoming game. It’s the perfect way to explore our markets and score a win on the house. Create your account in minutes and your Free Bet will be ready and waiting."</p>
             </div>
-
             <div class="proposal-card">
                 <h3>5. Odds Boost</h3>
                 <blockquote>Get Exclusive Odds on a Specific Game!</blockquote>
                 <p>"Ready for tonight's game? We're giving new users a massive Odds Boost on [Team X vs. Team Y]. Sign up and make a deposit to unlock this special, enhanced price. Get more value from your very first bet and turn a likely outcome into a huge win. This is a limited-time offer for new players only!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>6. No Deposit Bonus</h3>
                 <blockquote>Get [Amount] to Bet With – No Deposit Needed!</blockquote>
                 <p>"That's right, we're giving you [e.g., R$10] completely free just for creating an account. No deposit, no strings attached. Use your bonus to place a bet on any sport you like. Experience the excitement and start building your bankroll entirely on us. Sign up now and claim your free bonus!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>7. VIP Club</h3>
-                <blockquote>You Play, We Pay. Welcome to the VIP Club.</blockquote>
+                <blockquote>You Play, We Pay. Welcome to the VIP CLUB.</blockquote>
                 <p>"Your loyalty deserves to be rewarded. With our VIP Club, every bet you place helps you level up. As you climb the tiers, you'll unlock bigger and better rewards, including exclusive bonuses, free bets, and personalized offers. The more you play, the more we give back. Start your journey to VIP status today!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>8. Random Bonus (e.g., R$1,000 Prize Draw)</h3>
                 <blockquote>Your Deposit Could Win You R$1,000!</blockquote>
                 <p>"This week, your first deposit is more than just a deposit—it's your entry ticket to win a massive R$1,000 bonus! Simply sign up, fund your account, and you'll be automatically entered into the prize draw. Imagine what you could do with a R$1,000 bankroll. Make your first deposit today for a chance to win big!"</p>
             </div>
-
             <div class="proposal-card">
                 <h3>9. Risk-Free Bet (e.g., R$10 With No Risk)</h3>
                 <blockquote>Your First R$10 Bet is On Us.</blockquote>
                 <p>"Place your first bet with total confidence. Sign up and make a deposit, then place a bet of up to R$10 on any market. If your bet wins, you keep the profits. If it loses, we'll refund your stake in full as a free bet. It’s the perfect way to make your first play completely risk-free."</p>
             </div>
-
+        </div>
+        
+        <h2 class="section-title">Special Campaign Concepts</h2>
+        
+        <div class="special-proposals-grid">
+            
             <div class="proposal-card" id="playstation-card">
-                <h3>10. Playstation Landing Page</h3>
-                <blockquote>Your Next Big Win Could Be a PS5!</blockquote>
-                <p>"Level up your gaming setup! For a limited time, new users who sign up with a specific code and make a first deposit will be automatically entered into our exclusive prize draw to win the latest PlayStation."</p>
-                <div class="promo-code">CODE: PLAYWIN</div>
+                <div class="content-wrapper">
+                    <h3>Win a <span class="highlight">PlayStation 5</span></h3>
+                    <p>Level up your gaming setup! Sign up with the code below and make a deposit to enter our exclusive prize draw.</p>
+                    <a href="#" class="promo-code-btn">CODE: PLAYWIN</a>
+                </div>
             </div>
 
             <div class="proposal-card">
-                <h3>11. Spin Landing Page</h3>
-                <blockquote>Spin to Win Your Welcome Bonus!</blockquote>
+                <h3>11. Spin & Win</h3>
+                <blockquote>Spin First, Register to Claim!</blockquote>
                 <div class="spin-wheel-container">
                     <div class="spin-wheel"></div>
                 </div>
-                <p>"Feeling lucky? Sign up and make your first deposit to get one free spin on our Bonus Wheel! Every spin is a guaranteed winner, with prizes like Free Bets, Deposit Matches, and more."</p>
+                <p>First, spin the wheel to reveal your exclusive welcome bonus! Once you land on a prize, simply register and make your first deposit to claim it. Every spin is a guaranteed winner. Try your luck now!</p>
             </div>
 
             <div class="proposal-card">
-                <h3>12. Tips Telegram</h3>
-                <blockquote>Join Our Exclusive Telegram for Expert Tips.</blockquote>
-                <p>"Gain an edge with free, daily tips from our AI specialist. Join our exclusive Telegram channel and receive expert insights and analysis delivered straight to your phone. No deposit required. Just click to join and start making smarter bets today!"</p>
+                <h3>12. Telegram Tips Channel</h3>
+                <blockquote>Join for Expert AI-Powered Tips.</blockquote>
+                <p>Gain an edge with free, daily tips from our AI specialist. Join our exclusive Telegram channel and receive expert insights and analysis delivered straight to your phone. No deposit required. Just click to join and start making smarter bets today!</p>
             </div>
 
         </div>
+
     </main>
 
 </body>
