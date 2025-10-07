@@ -179,14 +179,14 @@
             font-weight: 900;
             color: #ffffff;
             border: none;
-            line-height: 1.1;
+            line-height: 1.2; /* Ajuste de espaçamento de linha */
             margin: 0 0 0.5em 0;
         }
 
         .special-card h3 .highlight {
             background-color: var(--highlight-color);
             color: var(--header-color);
-            padding: 0.1em 0.2em;
+            padding: 0.2em 0.3em; /* Mais espaçamento vertical e horizontal */
         }
         
         .special-card p {
@@ -279,10 +279,8 @@
         
         /* Telegram SVG logo */
         #telegram-card .visual-content svg {
-            width: 150px;
+            width: 180px; /* Ajuste de tamanho */
             height: auto;
-            fill: #ffffff;
-            opacity: 0.9;
         }
 
         /* Responsive adjustments for special cards */
@@ -296,12 +294,13 @@
                 padding-right: 0;
                 order: 2; /* Text comes after visual */
             }
-            .special-card .visual-content {
+             .special-card .visual-content {
                 order: 1; /* Visual comes first */
                 margin-bottom: 2em;
             }
-            #playstation-card { /* PS5 card is an exception, text-first is better */
-                flex-direction: column-reverse;
+            #playstation-card {
+                flex-direction: column-reverse; /* Text first is better for this one */
+                 align-items: center;
             }
         }
     </style>
@@ -396,7 +395,10 @@
                     <a href="#" class="special-card-btn">JOIN THE CHANNEL</a>
                 </div>
                 <div class="visual-content">
-                    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M222.972 38.3992L17.651 109.282C2.47214 115.532 -4.38314 132.822 5.31502 144.925L42.8443 167.452C47.4815 169.967 52.9547 170.927 58.0931 170.08L183.31 140.732C185.391 140.063 186.233 142.533 184.343 143.911L95.539 201.854C89.131 206.332 87.733 215.118 92.548 220.833L107.41 238.71C115.827 248.87 129.972 249.231 138.861 239.544L234.62 124.437C250.78 105.823 243.682 73.1251 222.972 58.3992V38.3992Z"/></svg>
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF">
+                        <title>Telegram</title>
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.17.91-.494 1.202-.82 1.23-.696.06-1.225-.46-1.9-1.002-1.03-1.03-1.622-1.622-2.652-2.652-.994-.994-.467-1.545.24-2.291L15.09 9.07c.21-.19.42-.38.08-.66-.34-.28-.71-.13-.99.08L9.13 12.35l-2.545-.79c-.994-.31-1.782-.61-1.782-1.29 0-.52.49-1.02 1.48-1.42l9.64-3.63Z"/>
+                    </svg>
                 </div>
             </div>
 
