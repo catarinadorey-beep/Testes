@@ -1,301 +1,548 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catarina d'Orey | Paid Media Specialist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Relatório de Performance - Mundo Bola Q1-Q3 2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --primary-dark: #121826;
-            --secondary-dark: #1f2937;
-            --accent-color: #00f5c4;
-            --text-primary: #f0f4f8;
-            --text-secondary: #a9b3c1;
-            --card-border: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--primary-dark);
-            color: var(--text-primary);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
         }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Navigation --- */
         .navbar {
-            position: fixed;
+            background-color: #343a40;
+            padding: 1rem;
+            position: sticky;
             top: 0;
-            width: 100%;
-            background-color: rgba(18, 24, 38, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
             z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
         }
-
-        .navbar .container {
+        .navbar-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
-
-        .nav-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--text-primary);
+        .navbar a, .dropdown .dropbtn {
+            color: white;
             text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
-
-        .nav-logo span {
-            color: var(--accent-color);
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #495057;
         }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-item {
-            margin-left: 25px;
-        }
-
-        .nav-link {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- Hero Section --- */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 60px; /* Offset for navbar */
-        }
-
-        .hero-content {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-        
-        .hero-content h1 span {
-            color: var(--accent-color);
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-        
-        .btn {
+        .dropdown {
+            position: relative;
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--primary-dark);
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 245, 196, 0.2);
-        }
-        
-        /* --- General Section Styling --- */
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--card-border);
-        }
-        
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--text-primary);
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* --- About Section --- */
-        #about p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        /* --- Experience Section (Timeline) --- */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
+        .dropdown-content {
+            display: none;
             position: absolute;
-            width: 3px;
-            background-color: var(--secondary-dark);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--primary-dark);
-            border: 4px solid var(--accent-color);
-            top: 25px;
-            border-radius: 50%;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
-        
-        .timeline-left {
-            left: 0;
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
         }
-
-        .timeline-right {
-            left: 50%;
+        .dropdown-content a:hover { background-color: #ddd; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
         }
-        
-        .timeline-right::after {
-            left: -10px;
-        }
-        
-        .timeline-content {
-            padding: 20px 30px;
-            background: var(--secondary-dark);
+        .section {
+            background-color: #ffffff;
+            margin-bottom: 2rem;
+            padding: 2rem;
             border-radius: 8px;
-            border: 1px solid var(--card-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        h1, h2, h3 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
         }
-
-        .timeline-date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        
-        .timeline-content h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-        }
-        
-        .timeline-content h4 {
-            color: var(--text-secondary);
-            font-weight: 400;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        .timeline-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .timeline-content li {
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .timeline-content li::before {
-            content: '✓';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-        }
-        
-        /* --- Skills Section --- */
-        .skills-grid {
+        .header { text-align: center; background: #0056b3; color: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+        .header h1 { color: white; border: none; }
+        .header p { font-size: 1.2rem; }
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
         }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        .kpi-container { display: flex; justify-content: space-around; background: #e9ecef; padding: 1rem; border-radius: 8px; text-align: center; }
+        .kpi { font-size: 1.1rem; }
+        .kpi .value { font-size: 1.8rem; font-weight: bold; color: #0056b3; }
+        .kpi .change { font-size: 1rem; }
+        .increase { color: #28a745; }
+        .decrease { color: #dc3545; }
+    </style>
+</head>
+<body>
 
-        .skill-card {
-            background: var(--secondary-dark);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--card-border);
-            text-align: center;
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="#geral">Visão Geral</a>
+        <div class="dropdown">
+            <button class="dropbtn">Análise de Tráfego</button>
+            <div class="dropdown-content">
+                <a href="#traffic-sources">Fontes de Tráfego</a>
+                <a href="#user-types">Visitantes Novos vs Recorrentes</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Performance SEO</button>
+            <div class="dropdown-content">
+                <a href="#organic-clicks">Cliques Orgânicos</a>
+                <a href="#organic-table">Tabela de Desempenho</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Afiliados</a>
+            <div class="dropdown-content">
+                 <a href="#affiliate-clicks">Cliques por Marca</a>
+                 <a href="#conversions">Conversões Mensais</a>
+                 <a href="#effort-reward">Esforço vs Recompensa</a>
+            </div>
+        </div>
+        <a href="#strategy">Estratégia</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Análise de Performance: Mundo Bola</h1>
+        <p>Relatório Interativo dos Trimestres Q1 a Q3 de 2025</p>
+    </header>
+
+    <section id="geral" class="section">
+        <h2>Visão Geral do Período</h2>
+        <div class="kpi-container">
+            <div class="kpi">
+                <div>Total de Sessões</div>
+                <div class="value">1.1M</div>
+                <div class="change increase">+37.15%</div>
+            </div>
+            <div class="kpi">
+                <div>Total de Pageviews</div>
+                <div class="value">1.64M</div>
+                <div class="change increase">+40.46%</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="traffic-sources" class="section">
+        <h2>Fontes de Tráfego por Trimestre</h2>
+        <p>A Pesquisa Orgânica (Organic Search) demonstrou um crescimento notável, tornando-se a principal fonte de tráfego no Q3.</p>
+        <div class="grid">
+            <div>
+                <h3>Q1</h3>
+                <div class="chart-container"><canvas id="trafficQ1"></canvas></div>
+            </div>
+            <div>
+                <h3>Q2</h3>
+                <div class="chart-container"><canvas id="trafficQ2"></canvas></div>
+            </div>
+            <div>
+                <h3>Q3</h3>
+                <div class="chart-container"><canvas id="trafficQ3"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="user-types" class="section">
+        <h2>Visitantes Novos vs. Recorrentes</h2>
+        <p>Observa-se um aumento progressivo na percentagem de visitantes recorrentes, indicando uma maior fidelização da audiência.</p>
+        <div class="grid">
+            <div>
+                <h3>Q1</h3>
+                <div class="chart-container"><canvas id="usersQ1"></canvas></div>
+            </div>
+            <div>
+                <h3>Q2</h3>
+                <div class="chart-container"><canvas id="usersQ2"></canvas></div>
+            </div>
+            <div>
+                <h3>Q3</h3>
+                <div class="chart-container"><canvas id="usersQ3"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="organic-clicks" class="section">
+        <h2>Evolução da Performance Orgânica (SEO)</h2>
+        <div class="grid">
+            <div>
+                <h3>Cliques Orgânicos por Mês</h3>
+                <div class="chart-container"><canvas id="organicClicksChart"></canvas></div>
+            </div>
+            <div>
+                <h3>Posição Média por Mês</h3>
+                <div class="chart-container"><canvas id="positionChart"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="organic-table" class="section">
+        <h2>Tabela de Desempenho Orgânico</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trimestre</th>
+                    <th>Cliques</th>
+                    <th>Variação (%)</th>
+                    <th>Impressões</th>
+                    <th>Variação (%)</th>
+                    <th>Posição Média</th>
+                    <th>Variação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Q1 2025</td>
+                    <td>190,716</td>
+                    <td>-</td>
+                    <td>14,105,336</td>
+                    <td>-</td>
+                    <td>9.83</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Q2 2025</td>
+                    <td>312,169</td>
+                    <td class="increase">64%</td>
+                    <td>28,572,951</td>
+                    <td class="increase">103%</td>
+                    <td>8.72</td>
+                    <td class="increase">-1.11</td>
+                </tr>
+                <tr>
+                    <td>Q3 2025</td>
+                    <td>594,105</td>
+                    <td class="increase">90%</td>
+                    <td>56,328,565</td>
+                    <td class="increase">97%</td>
+                    <td>9.18</td>
+                    <td class="decrease">+0.46</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section id="affiliate-clicks" class="section">
+        <h2>Cliques de Afiliados por Marca</h2>
+         <p>O volume de cliques de afiliados cresceu exponencialmente. A Bet365 assumiu a liderança no Q2 e Q3.</p>
+        <div class="grid">
+            <div>
+                <h3>Q1 (145 cliques)</h3>
+                <div class="chart-container"><canvas id="affiliateQ1"></canvas></div>
+            </div>
+            <div>
+                <h3>Q2 (313 cliques, <span class="increase">+115%</span>)</h3>
+                <div class="chart-container"><canvas id="affiliateQ2"></canvas></div>
+            </div>
+            <div>
+                <h3>Q3 (531 cliques, <span class="increase">+70%</span>)</h3>
+                <div class="chart-container"><canvas id="affiliateQ3"></canvas></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="conversions" class="section">
+        <h2>Conversões Mensais (FTDs, Registos, Cliques de Afiliados)</h2>
+        <div class="chart-container" style="height: 500px;"><canvas id="conversionsChart"></canvas></div>
+    </section>
+    
+    <section id="effort-reward" class="section">
+        <h2>Análise de Esforço vs. Recompensa por Categoria de Conteúdo</h2>
+        <div class="grid">
+            <div>
+                <h3>Publicações vs. Cliques de Afiliados</h3>
+                <div class="chart-container"><canvas id="effortChart"></canvas></div>
+            </div>
+            <div>
+                <h3>Taxa de Conversão (CR%)</h3>
+                <div class="chart-container"><canvas id="crChart"></canvas></div>
+            </div>
+        </div>
+        <p>Apesar do baixo volume de publicações, a categoria "Reviews" apresenta a maior taxa de conversão (18.40%), indicando um alto retorno sobre o investimento.</p>
+    </section>
+
+    <section id="strategy" class="section">
+        <h2>Estratégia para o 2º Semestre</h2>
+        <div class="grid">
+            <div>
+                <h3>01. Escalar Conversão</h3>
+                <ul>
+                    <li>Aumentar a produção de conteúdos de apostas.</li>
+                    <li>Continuar otimização de conteúdos evergreen.</li>
+                    <li>Rever estrutura de links internos.</li>
+                    <li>Focar em estratégia de backlinks.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>02. Inovação</h3>
+                <ul>
+                    <li>Criar páginas de ferramentas de apostas com IA.</li>
+                    <li>Testar conteúdo evolutivo (rankings "os melhores").</li>
+                </ul>
+            </div>
+            <div>
+                <h3>03. Otimização Contínua</h3>
+                <ul>
+                    <li>Transformar "palpites" em conteúdo histórico para preservar o valor do URL e melhorar o E-E-A-T.</li>
+                    <li>Continuar a aumentar a autoridade do site (DR atual: 58).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    // Gráfico: Fontes de Tráfego Q1
+    new Chart(document.getElementById('trafficQ1'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
+            datasets: [{
+                data: [52.1, 25.4, 19.9, 2.5],
+                backgroundColor: ['#007bff', '#ffc107', '#28a745', '#17a2b8']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Fontes de Tráfego Q2
+    new Chart(document.getElementById('trafficQ2'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
+            datasets: [{
+                data: [52, 28.9, 16.6, 2.4],
+                backgroundColor: ['#007bff', '#ffc107', '#28a745', '#17a2b8']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Fontes de Tráfego Q3
+    new Chart(document.getElementById('trafficQ3'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
+            datasets: [{
+                data: [64.9, 19.6, 13.8, 1.5],
+                backgroundColor: ['#007bff', '#ffc107', '#28a745', '#17a2b8']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Visitantes Q1
+    new Chart(document.getElementById('usersQ1'), {
+        type: 'pie',
+        data: {
+            labels: ['Novos', 'Recorrentes'],
+            datasets: [{
+                data: [49.5, 39.1],
+                backgroundColor: ['#6f42c1', '#6c757d']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Visitantes Q2
+    new Chart(document.getElementById('usersQ2'), {
+        type: 'pie',
+        data: {
+            labels: ['Novos', 'Recorrentes'],
+            datasets: [{
+                data: [47.8, 41.2],
+                backgroundColor: ['#6f42c1', '#6c757d']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Visitantes Q3
+    new Chart(document.getElementById('usersQ3'), {
+        type: 'pie',
+        data: {
+            labels: ['Novos', 'Recorrentes'],
+            datasets: [{
+                data: [46.5, 44.8],
+                backgroundColor: ['#6f42c1', '#6c757d']
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+
+    // Gráfico: Cliques Orgânicos
+    new Chart(document.getElementById('organicClicksChart'), {
+        type: 'line',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
+            datasets: [{
+                label: 'Cliques Orgânicos',
+                data: [88000, 108000, 100000, 128000, 115000, 160000, 275000],
+                borderColor: '#007bff',
+                tension: 0.1,
+                fill: false
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+    
+    // Gráfico: Posição Média
+    new Chart(document.getElementById('positionChart'), {
+        type: 'line',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
+            datasets: [{
+                label: 'Posição Média',
+                data: [10.8, 8.9, 9.7, 8.1, 8.8, 9.5, 9.9, 9.9, 7.7],
+                borderColor: '#dc3545',
+                tension: 0.1,
+                fill: false
+            }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { reverse: true } } }
+    });
+    
+    // Gráficos de Afiliados
+    const affiliateOptions = {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } }
+    };
+
+    new Chart(document.getElementById('affiliateQ1'), {
+        type: 'bar',
+        data: {
+            labels: ['Galerabet', 'Esportes da Sorte', 'Alfa.bet', 'Superbet', 'Bet365', 'Blaze'],
+            datasets: [{ label: 'Cliques', data: [34, 22, 16, 16, 13, 10], backgroundColor: '#17a2b8' }]
+        },
+        options: affiliateOptions
+    });
+
+    new Chart(document.getElementById('affiliateQ2'), {
+        type: 'bar',
+        data: {
+            labels: ['Bet365', 'Galerabet', 'Superbet', 'Esportes da Sorte', 'Alfa.bet', 'Blaze'],
+            datasets: [{ label: 'Cliques', data: [69, 45, 43, 42, 26, 21], backgroundColor: '#17a2b8' }]
+        },
+        options: affiliateOptions
+    });
+
+    new Chart(document.getElementById('affiliateQ3'), {
+        type: 'bar',
+        data: {
+            labels: ['Bet365', 'Superbet', 'Galerabet', 'Esportes da Sorte', 'Alfa.bet', 'Blaze'],
+            datasets: [{ label: 'Cliques', data: [94, 83, 69, 68, 44, 30], backgroundColor: '#17a2b8' }]
+        },
+        options: affiliateOptions
+    });
+
+    // Gráfico de Conversões
+    new Chart(document.getElementById('conversionsChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
+            datasets: [
+                { label: 'FTDs', data: [9, 18, 1, 2, 3, 13, 12, 11, 12], backgroundColor: '#007bff' },
+                { label: 'Registos', data: [0, 5, 96, 20, 11, 21, 26, 0, 0], backgroundColor: '#ffc107' }, // Dados estimados, alguns meses sem barra visível
+                { label: 'Affiliate Clicks', data: [0, 62, 117, 128, 81, 104, 152, 159, 220], backgroundColor: '#28a745' }
+            ]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+    });
+    
+    // Gráfico Esforço vs Recompensa
+    new Chart(document.getElementById('effortChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Reviews', 'Apostas', 'Palpites', 'Notícias'],
+            datasets: [
+                {
+                    label: 'Nº Novas Publicações/Otimizações',
+                    data: [8, 39, 241, 4824],
+                    backgroundColor: '#343a40'
+                },
+                {
+                    label: 'Affiliate Clicks',
+                    data: [90, 147, 33, 268],
+                    backgroundColor: '#17a2b8',
+                    type: 'line',
+                    yAxisID: 'y1'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Publicações' } },
+                y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'Cliques' }, grid: { drawOnChartArea: false } }
+            }
         }
-        
-        .skill-card i {
-            font
+    });
+
+    // Gráfico CR%
+    new Chart(document.getElementById('crChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Reviews', 'Apostas', 'Palpites', 'Notícias'],
+            datasets: [{
+                label: 'CR (%)',
+                data: [18.40, 2.24, 0.46, 0.03],
+                backgroundColor: ['#28a745', '#ffc107', '#fd7e14', '#dc3545']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } }
+        }
+    });
+
+</script>
+</body>
+</html>
