@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Performance - Mundo Bola Q1-Q3 2025</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Pickswise | Análise de Mercado - Casino Online (Ontário)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
@@ -14,694 +13,436 @@
             --header-color: #231372;
             --highlight-color: #20E2C8;
             --accent-color: #6106AF;
-            --background-color: #f8f9fa;
-            --card-background: #ffffff;
+            --bg-light: #f8f9fa;
         }
 
         body {
             font-family: 'Figtree', sans-serif;
-            margin: 0;
-            background-color: var(--background-color);
             color: var(--text-color);
+            margin: 0;
+            background-color: var(--bg-light);
             line-height: 1.6;
         }
 
-        /* --- Header & Logo --- */
-        .main-header {
-            background-color: var(--card-background);
+        header {
+            background-color: #FFFFFF;
             padding: 1.5em;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .main-header svg {
+
+        header svg {
             height: 70px;
             width: auto;
         }
 
-        /* --- Tipografia --- */
-        h1, h2, h3, h4 {
+        main {
+            padding: 2em 1.5em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
             font-family: 'Barlow', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
             color: var(--header-color);
-            position: relative;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            margin-bottom: 0.5em;
         }
 
         h2 {
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2em;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1em;
+            padding-bottom: 8px;
         }
 
         h2::after {
             content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 5px;
             background-color: var(--highlight-color);
-            margin-top: 0.5rem;
         }
         
-        /* --- Layout --- */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 2rem;
+        h3 {
+            font-size: 1.4em;
+            color: var(--accent-color);
         }
 
         .section {
-            background-color: var(--card-background);
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 4em;
         }
 
-        .grid {
+        .intro-text {
+            font-size: 1.2em;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3em auto;
+        }
+
+        .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            align-items: center;
-        }
-        
-        /* --- Navegação --- */
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1rem;
-            position: sticky;
-            top: 115px; /* Altura do header + padding */
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-        }
-        .navbar-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .navbar a, .dropdown .dropbtn {
-            color: var(--header-color);
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s;
-            font-family: 'Figtree', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-        .navbar a:hover, .dropdown:hover .dropbtn {
-            background-color: var(--highlight-color);
-            color: var(--header-color);
+            gap: 1.5em;
         }
 
-        /* --- CORREÇÃO DO DROPDOWN --- */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--card-background);
-            min-width: 180px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            z-index: 1;
+        .card {
+            background-color: #fff;
             border-radius: 8px;
-            overflow: hidden;
-            /* A linha abaixo posiciona o menu corretamente abaixo do botão */
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            /* Adicionamos um padding para criar espaço interno, em vez de uma margem externa */
-            padding-top: 5px; 
-            padding-bottom: 5px;
-        }
-        .dropdown-content a {
-            color: var(--text-color);
-            padding: 10px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-weight: normal;
-        }
-        .dropdown-content a:hover { background-color: #f1f1f1; }
-        .dropdown:hover .dropdown-content { display: block; }
-        
-        /* --- Componentes --- */
-        .chart-container {
-            position: relative;
-            height: 400px;
-            width: 100%;
-        }
-
-        .kpi-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            text-align: center;
-        }
-        .kpi {
-            background-color: var(--background-color);
-            padding: 1.5rem;
-            border-radius: 10px;
+            padding: 1.5em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-left: 5px solid var(--highlight-color);
         }
-        .kpi .value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--header-color);
-            margin: 0.25rem 0;
+        
+        .card.secondary {
+             border-left-color: var(--accent-color);
         }
-        .kpi .change { font-size: 1rem; }
-        .increase { color: #28a745; }
-        .decrease { color: #dc3545; }
 
+        .card h4 {
+            font-family: 'Barlow', sans-serif;
+            text-transform: uppercase;
+            color: var(--header-color);
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .card ul li {
+            margin-bottom: 0.5em;
+            padding-left: 1.2em;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .card.secondary ul li::before {
+            color: var(--accent-color);
+        }
+
+        .critical-section {
+            background-color: #fff;
+            border: 2px solid #ff4d4d;
+            border-radius: 8px;
+            padding: 2em;
+            margin-top: 2em;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.1);
+        }
+        
+        .critical-section h2 {
+            color: #ff4d4d;
+        }
+
+        .critical-section h2::after {
+             background-color: #ff4d4d;
+        }
+
+        .solution-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin-top: 2em;
+        }
+
+        .solution-step {
+            background: #f0f2ff;
+            border-radius: 8px;
+            padding: 1.5em;
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .solution-step::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--header-color);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+        }
+        
+        body {
+            counter-reset: step-counter;
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
+            margin-top: 2em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
         }
+        
         th, td {
-            padding: 15px;
-            border-bottom: 1px solid #dee2e6;
+            padding: 1em 1.2em;
             text-align: left;
+            border-bottom: 1px solid #e0e0e0;
         }
+        
         th {
             background-color: var(--header-color);
-            color: white;
+            color: #fff;
             font-family: 'Barlow', sans-serif;
             text-transform: uppercase;
-            font-size: 0.9em;
         }
-        tbody tr:nth-child(odd) {
-            background-color: var(--background-color);
+        
+        tr:nth-child(even) {
+            background-color: var(--bg-light);
         }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        td:first-child {
+            font-weight: 700;
+        }
+
     </style>
 </head>
 <body>
 
-<header class="main-header">
-    <svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 837.7 245.66">
-        <defs>
-          <style>
-            .cls-1 { fill: none; }
-            .cls-2 { clip-path: url(#clippath-1); }
-            .cls-3 { fill: url(#Gradiente_sem_nome_10); }
-            .cls-4 { fill: #24282a; }
-            .cls-5 { clip-path: url(#clippath); }
-          </style>
-          <clipPath id="clippath"> <rect class="cls-1" x="546.28" y="39.03" width="110.43" height="113"/> </clipPath>
-          <clipPath id="clippath-1"> <rect class="cls-1" width="240.06" height="245.66"/> </clipPath>
-          <linearGradient id="Gradiente_sem_nome_10" data-name="Gradiente sem nome 10" x1="5622.93" y1="5321.6" x2="5624.11" y2="5322.12" gradientTransform="translate(-1349792.92 1307463.94) scale(240.05 -245.66)" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#231372"/>
-            <stop offset="1" stop-color="#20E2C8"/>
-          </linearGradient>
-        </defs>
-        <g id="Camada_1" data-name="Camada 1">
-          <g id="Grupo_149" data-name="Grupo 149">
-            <g id="Grupo_42-2" data-name="Grupo 42-2">
-              <path id="Caminho_389-2" data-name="Caminho 389-2" class="cls-4" d="M452.05,129.69v18.74c0,1.99-1.61,3.6-3.6,3.6h-67.98c-1.99,0-3.6-1.61-3.6-3.6h0V42.63c0-1.99,1.61-3.6,3.6-3.6h20.9c1.99,0,3.6,1.61,3.6,3.6h0v83.46h43.47c1.99,0,3.6,1.61,3.61,3.59h0Z"/>
-              <path id="Caminho_392-2" data-name="Caminho 392-2" class="cls-4" d="M821.22,116.37l-2.89-5.46c17.91-12.4,22.38-36.97,9.99-54.88-7.37-10.65-19.49-17-32.44-17h-41.65c-1.99,0-3.6,1.61-3.6,3.6v105.8c0,1.99,1.61,3.6,3.6,3.6h20.81c2.04,0,3.7-1.66,3.7-3.7v-30.56c0-.77.63-1.4,1.4-1.4h8.8c.52,0,1,.29,1.24.75l.23.43,17.21,32.51c.64,1.22,1.91,1.98,3.29,1.98h23.18c2,0,3.62-1.63,3.62-3.63,0-.59-.15-1.17-.42-1.69l-16.06-30.34ZM805.1,85.93c-2.59,4.22-7.18,6.79-12.13,6.78h-14.24v-28.46h14.9v.02c7.86.37,13.93,7.03,13.56,14.89-.11,2.4-.83,4.73-2.09,6.78h0Z"/>
-              <path id="Caminho_390-2" data-name="Caminho 390-2" class="cls-4" d="M370.4,140.66c.53.99.24,2.22-.67,2.87-26.46,18.91-63.23,12.79-82.14-13.66-18.91-26.46-12.79-63.23,13.66-82.14,20.48-14.64,47.99-14.64,68.47,0,.91.66,1.19,1.88.67,2.88l-10.45,19.73c-.93,1.76-3.11,2.42-4.87,1.49-.2-.1-.38-.23-.55-.36-13.36-10.51-32.71-8.21-43.22,5.15-10.51,13.36-8.21,32.71,5.15,43.22,11.17,8.79,26.91,8.79,38.08,0,1.55-1.24,3.82-.99,5.06.57.14.17.26.36.37.56l10.44,19.73Z"/>
-              <path id="Caminho_388-2" data-name="Caminho 388-2" class="cls-4" d="M487.03,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/>
-              <path id="Caminho_391-2" data-name="Caminho 391-2" class="cls-4" d="M691.37,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/>
-              <g id="Grupo_29-2" data-name="Grupo 29-2">
-                <g class="cls-5">
-                  <g id="Grupo_4-3" data-name="Grupo 4-3">
-                    <path id="Caminho_204-3" data-name="Caminho 204-3" class="cls-4" d="M656.55,42.1l-42.22,107.61c-.55,1.4-1.9,2.32-3.41,2.32h-18.86c-1.51,0-2.86-.92-3.41-2.32l-42.22-107.61c-.45-1.15.11-2.46,1.27-2.91.26-.1.54-.16.82-.16h24.31c1.54,0,2.92.96,3.45,2.41l25.21,69.57,15.99-44.09c.27-.74-.12-1.55-.85-1.82-.15-.06-.32-.08-.48-.08h-15.82c-1.24,0-2.25-1-2.25-2.25,0-.26.05-.52.13-.77l7.45-20.56c.53-1.45,1.9-2.41,3.44-2.41h45.35c1.24,0,2.25,1.01,2.25,2.25,0,.28-.05.56-.16.82"/>
+    <header>
+        <svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 837.7 245.66">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+              }
+              .cls-2 {
+                clip-path: url(#clippath-1);
+              }
+              .cls-3 {
+                fill: url(#Gradiente_sem_nome_10);
+              }
+              .cls-4 {
+                fill: #24282a;
+              }
+              .cls-5 {
+                clip-path: url(#clippath);
+              }
+            </style>
+            <clipPath id="clippath">
+              <rect class="cls-1" x="546.28" y="39.03" width="110.43" height="113"/>
+            </clipPath>
+            <clipPath id="clippath-1">
+              <rect class="cls-1" width="240.06" height="245.66"/>
+            </clipPath>
+            <linearGradient id="Gradiente_sem_nome_10" data-name="Gradiente sem nome 10" x1="5622.93" y1="5321.6" x2="5624.11" y2="5322.12" gradientTransform="translate(-1349792.92 1307463.94) scale(240.05 -245.66)" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#1b1f59"/>
+              <stop offset="1" stop-color="#0fc"/>
+            </linearGradient>
+          </defs>
+          <g id="Camada_1" data-name="Camada 1">
+            <g id="Grupo_149" data-name="Grupo 149">
+              <g id="Grupo_42-2" data-name="Grupo 42-2">
+                <path id="Caminho_389-2" data-name="Caminho 389-2" class="cls-4" d="M452.05,129.69v18.74c0,1.99-1.61,3.6-3.6,3.6h-67.98c-1.99,0-3.6-1.61-3.6-3.6h0V42.63c0-1.99,1.61-3.6,3.6-3.6h20.9c1.99,0,3.6,1.61,3.6,3.6h0v83.46h43.47c1.99,0,3.6,1.61,3.61,3.59h0Z"/>
+                <path id="Caminho_392-2" data-name="Caminho 392-2" class="cls-4" d="M821.22,116.37l-2.89-5.46c17.91-12.4,22.38-36.97,9.99-54.88-7.37-10.65-19.49-17-32.44-17h-41.65c-1.99,0-3.6,1.61-3.6,3.6v105.8c0,1.99,1.61,3.6,3.6,3.6h20.81c2.04,0,3.7-1.66,3.7-3.7v-30.56c0-.77.63-1.4,1.4-1.4h8.8c.52,0,1,.29,1.24.75l.23.43,17.21,32.51c.64,1.22,1.91,1.98,3.29,1.98h23.18c2,0,3.62-1.63,3.62-3.63,0-.59-.15-1.17-.42-1.69l-16.06-30.34ZM805.1,85.93c-2.59,4.22-7.18,6.79-12.13,6.78h-14.24v-28.46h14.9v.02c7.86.37,13.93,7.03,13.56,14.89-.11,2.4-.83,4.73-2.09,6.78h0Z"/>
+                <path id="Caminho_390-2" data-name="Caminho 390-2" class="cls-4" d="M370.4,140.66c.53.99.24,2.22-.67,2.87-26.46,18.91-63.23,12.79-82.14-13.66-18.91-26.46-12.79-63.23,13.66-82.14,20.48-14.64,47.99-14.64,68.47,0,.91.66,1.19,1.88.67,2.88l-10.45,19.73c-.93,1.76-3.11,2.42-4.87,1.49-.2-.1-.38-.23-.55-.36-13.36-10.51-32.71-8.21-43.22,5.15-10.51,13.36-8.21,32.71,5.15,43.22,11.17,8.79,26.91,8.79,38.08,0,1.55-1.24,3.82-.99,5.06.57.14.17.26.36.37.56l10.44,19.73Z"/>
+                <path id="Caminho_388-2" data-name="Caminho 388-2" class="cls-4" d="M487.03,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/>
+                <path id="Caminho_391-2" data-name="Caminho 391-2" class="cls-4" d="M691.37,64.97v18.73h37.96c1.99,0,3.6,1.61,3.6,3.6v16.46c0,1.99-1.61,3.6-3.6,3.6h-37.96v18.73h49.15c1.99,0,3.6,1.61,3.6,3.6v18.74c0,1.99-1.61,3.6-3.6,3.6h-73.66c-1.99,0-3.6-1.61-3.6-3.6V42.63c0-1.99,1.61-3.6,3.6-3.6h73.66c1.99,0,3.6,1.61,3.6,3.6v18.65c0,2.04-1.65,3.69-3.69,3.69h-49.06Z"/>
+                <g id="Grupo_29-2" data-name="Grupo 29-2">
+                  <g class="cls-5">
+                    <g id="Grupo_4-3" data-name="Grupo 4-3">
+                      <path id="Caminho_204-3" data-name="Caminho 204-3" class="cls-4" d="M656.55,42.1l-42.22,107.61c-.55,1.4-1.9,2.32-3.41,2.32h-18.86c-1.51,0-2.86-.92-3.41-2.32l-42.22-107.61c-.45-1.15.11-2.46,1.27-2.91.26-.1.54-.16.82-.16h24.31c1.54,0,2.92.96,3.45,2.41l25.21,69.57,15.99-44.09c.27-.74-.12-1.55-.85-1.82-.15-.06-.32-.08-.48-.08h-15.82c-1.24,0-2.25-1-2.25-2.25,0-.26.05-.52.13-.77l7.45-20.56c.53-1.45,1.9-2.41,3.44-2.41h45.35c1.24,0,2.25,1.01,2.25,2.25,0,.28-.05.56-.16.82"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+              <g id="Grupo_43-2" data-name="Grupo 43-2">
+                <path id="Caminho_393-2" data-name="Caminho 393-2" class="cls-4" d="M310.46,207.36c0,.24-.09.46-.27.62-.22.17-.5.26-.77.24h-6.76c-.33,0-.66-.11-.92-.32-.28-.21-.49-.5-.61-.82l-1.57-4.57h-12.07l-1.55,4.55c-.09.33-.29.62-.57.82-.28.21-.62.33-.98.32h-6.74c-.28.02-.55-.06-.77-.23-.18-.16-.29-.39-.27-.63,0-.19.05-.37.12-.55l12.72-32.27c.14-.34.38-.64.68-.86.27-.2.6-.31.94-.31h5.02c.34,0,.67.12.94.32.29.21.51.51.63.85l12.69,32.29c.07.17.11.36.12.55M297.1,195.31l-3.6-10.55-3.6,10.55h7.2Z"/>
+                <path id="Caminho_394-2" data-name="Caminho 394-2" class="cls-4" d="M338.14,174.64c0-.34.13-.66.37-.89.23-.24.56-.38.89-.37h10.81c3.16-.05,6.28.71,9.06,2.23,2.61,1.44,4.77,3.58,6.23,6.19,1.52,2.76,2.29,5.86,2.24,9.01.05,3.14-.72,6.23-2.24,8.98-1.46,2.6-3.61,4.74-6.23,6.17-2.78,1.51-5.9,2.27-9.06,2.21h-10.81c-.7,0-1.26-.56-1.26-1.26h0v-32.27ZM350.21,199.97c3.23.04,6.21-1.71,7.74-4.55.77-1.42,1.16-3.01,1.14-4.62.02-1.66-.37-3.3-1.14-4.76-1.5-2.87-4.5-4.65-7.74-4.59l-3.43.02v18.5h3.43Z"/>
+                <path id="Caminho_395-2" data-name="Caminho 395-2" class="cls-4" d="M425.13,173.56c.18.15.28.38.26.62,0,.2-.04.39-.12.57l-12.72,32.27c-.13.35-.36.65-.65.87-.27.21-.6.32-.94.32h-5.02c-.35,0-.68-.12-.95-.33-.29-.21-.52-.5-.64-.83l-12.67-32.29c-.07-.17-.11-.36-.12-.55,0-.23.09-.46.26-.61.22-.16.49-.25.76-.23h6.76c.34,0,.67.11.94.32.28.21.48.51.58.85l7.55,21,7.67-21.05c.1-.34.31-.63.6-.83.27-.2.59-.31.93-.31h6.76c.27-.02.54.06.76.21"/>
+                <path id="Caminho_396-2" data-name="Caminho 396-2" class="cls-4" d="M452.9,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h22.4c.34-.02.68.1.93.33.23.25.35.59.33.93v5.48c.02.34-.1.67-.32.93-.25.24-.59.36-.94.33h-15.12v5.76h11.48c.37-.02.73.1,1.01.35.26.25.39.61.37.97v4.53c.02.35-.12.69-.37.93-.28.24-.64.36-1.01.33h-11.48v5.93h15.12c.47-.03.92.13,1.27.44.32.31.49.74.46,1.18v5.14c.02.34-.11.66-.35.9-.26.23-.6.35-.94.33h-22.85c-.34.02-.67-.09-.93-.32-.23-.25-.36-.58-.33-.92v-32.29Z"/>
+                <path id="Caminho_397-2" data-name="Caminho 397-2" class="cls-4" d="M534.29,207.26c0,.51-.4.92-.9.93-.02,0-.03,0-.05,0h-7.12c-.29.02-.58-.06-.82-.23-.27-.24-.48-.52-.63-.85l-5.1-9.81h-3.55v9.62c.02.34-.11.68-.35.93-.26.23-.61.35-.96.33h-6.1c-.34.02-.67-.1-.92-.33-.23-.25-.34-.59-.32-.93v-32.29c-.01-.34.11-.66.35-.9.23-.24.56-.37.89-.36h12.22c2.26-.04,4.49.47,6.5,1.49,1.85.95,3.38,2.42,4.42,4.23,1.09,1.94,1.64,4.14,1.59,6.36.03,2.04-.46,4.06-1.42,5.86-.92,1.71-2.29,3.13-3.96,4.12l6.1,11.31c.1.16.14.34.14.52M516.12,189.85h4.45c.77.01,1.52-.2,2.18-.6.64-.39,1.16-.95,1.51-1.62.37-.69.56-1.46.55-2.24.01-.76-.18-1.51-.55-2.18-.35-.63-.88-1.15-1.51-1.5-.67-.36-1.42-.55-2.18-.53h-4.45v8.67Z"/>
+                <path id="Caminho_398-2" data-name="Caminho 398-2" class="cls-4" d="M561.13,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h23.24c.34-.02.68.1.93.33.23.25.35.59.33.93v5.74c.02.35-.1.68-.33.94-.25.24-.58.37-.93.35h-7.31v25.55c.02.35-.1.69-.33.94-.26.23-.6.35-.95.32h-6.1c-.64.06-1.2-.4-1.26-1.04,0-.07,0-.15,0-.22v-25.55h-7.29c-.34.02-.68-.1-.93-.35-.23-.26-.35-.6-.33-.94v-5.74Z"/>
+                <path id="Caminho_399-2" data-name="Caminho 399-2" class="cls-4" d="M623.9,207.24c.07.44-.23.86-.68.93-.07.01-.15.01-.22,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.25.9.69,0,.07,0,.14,0,.21v32.94Z"/>
+                <path id="Caminho_400-2" data-name="Caminho 400-2" class="cls-4" d="M652.91,204.31c.01-.3.1-.6.26-.86l2.81-5.05c.2-.41.62-.67,1.07-.67.27.01.54.08.79.19,1.47.68,2.99,1.24,4.55,1.68,1.51.41,3.06.61,4.62.61,1.06.03,2.12-.21,3.06-.7.75-.34,1.24-1.07,1.25-1.89,0-.58-.25-1.13-.7-1.5-.6-.49-1.27-.86-2-1.12-.87-.33-2.09-.73-3.66-1.19-2.07-.58-4.08-1.36-6-2.34-1.43-.74-2.65-1.83-3.54-3.18-.87-1.47-1.29-3.15-1.22-4.86-.05-2.05.57-4.07,1.76-5.74,1.2-1.62,2.82-2.88,4.69-3.63,2.01-.83,4.17-1.25,6.35-1.23,1.47,0,2.94.17,4.37.5,1.37.3,2.71.73,4.01,1.26,1.03.42,2.02.93,2.95,1.52.41.21.68.62.71,1.07-.03.32-.13.63-.31.9l-2.83,5.14c-.17.38-.56.62-.98.62-.37-.02-.73-.13-1.05-.31-1.18-.62-2.41-1.14-3.68-1.56-1.23-.37-2.51-.55-3.8-.54-.91-.02-1.81.2-2.6.64-.64.29-1.07.92-1.1,1.62,0,.7.47,1.3,1.41,1.8,1.45.69,2.97,1.25,4.53,1.65,2.14.6,4.22,1.37,6.24,2.3,1.52.71,2.84,1.79,3.83,3.14,1.03,1.52,1.53,3.33,1.45,5.16.04,2.1-.58,4.15-1.79,5.87-1.23,1.71-2.91,3.04-4.86,3.85-2.15.91-4.46,1.36-6.79,1.33-2.35,0-4.68-.31-6.95-.9-2.2-.56-4.31-1.43-6.26-2.6-.38-.19-.61-.58-.62-1"/>
+                <path id="Caminho_401-2" data-name="Caminho 401-2" class="cls-4" d="M717.37,207.24c.07.44-.23.86-.68.93-.08.01-.15.01-.23,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.24.9.68.01.07.01.15,0,.22v32.94Z"/>
+                <path id="Caminho_402-2" data-name="Caminho 402-2" class="cls-4" d="M778.6,173.61c.17.19.26.44.24.69v32.96c.02.26-.07.51-.25.69-.19.17-.43.25-.68.24h-6.48c-.75,0-1.45-.41-1.81-1.07l-13.38-20.36v20.5c.02.25-.07.51-.25.69-.19.17-.43.25-.68.24h-6.79c-.25.01-.49-.07-.68-.24-.18-.18-.27-.44-.25-.69v-32.95c-.02-.25.07-.51.25-.69.19-.17.43-.25.68-.24h7.03c.75.04,1.42.46,1.79,1.12l12.88,19.15v-19.34c-.02-.25.07-.5.24-.69.18-.17.42-.25.67-.24h6.79c.25-.02.5.07.69.24"/>
+                <path id="Caminho_403-2" data-name="Caminho 403-2" class="cls-4" d="M827.49,200.03c.61-.16,1.2-.37,1.76-.66v-6.14c-.01-.34.12-.67.37-.91.24-.23.56-.36.89-.36h5.98c.32,0,.64.13.86.37.23.24.36.56.36.89v11.36c0,.26-.07.51-.19.74-.1.23-.27.42-.48.55-1.63.97-3.4,1.7-5.25,2.14-1.96.55-3.98.85-6.01.88-3.24.03-6.43-.79-9.24-2.4-2.75-1.56-5.04-3.82-6.63-6.55-1.63-2.77-2.47-5.93-2.44-9.15-.04-6.48,3.42-12.47,9.05-15.67,2.81-1.61,6-2.44,9.24-2.41,1.91.02,3.81.34,5.62.94,1.76.51,3.41,1.35,4.86,2.47.33.23.53.62.52,1.02,0,.24-.07.47-.22.67l-3.5,5.26c-.19.32-.53.51-.91.5-.3,0-.59-.1-.81-.31-.78-.65-1.68-1.13-2.64-1.44-.93-.33-1.92-.5-2.91-.51-1.71-.02-3.39.42-4.88,1.26-1.45.82-2.66,2-3.5,3.44-1.71,2.96-1.71,6.61,0,9.57.84,1.44,2.05,2.62,3.5,3.44,1.49.84,3.17,1.28,4.88,1.26.58-.02,1.16-.11,1.72-.27"/>
+              </g>
+              <g id="Grupo_41-2" data-name="Grupo 41-2">
+                <g class="cls-2">
+                  <g id="Grupo_4-4" data-name="Grupo 4-4">
+                    <path id="Caminho_204-4" data-name="Caminho 204-4" class="cls-3" d="M239.71,6.67l-91.78,233.94c-1.2,3.05-4.14,5.05-7.41,5.05h-41c-3.27,0-6.21-2.01-7.41-5.05L.34,6.67C-.64,4.16.59,1.32,3.1.34,3.67.11,4.28,0,4.89,0h52.84c3.35,0,6.34,2.1,7.48,5.25l54.82,151.23,34.75-95.85c.58-1.6-.25-3.37-1.85-3.95-.34-.12-.69-.19-1.05-.18h-34.39c-2.7,0-4.88-2.19-4.88-4.88,0-.57.1-1.13.29-1.66l16.2-44.7c1.14-3.15,4.13-5.25,7.49-5.25h98.59c2.7,0,4.88,2.19,4.88,4.88,0,.61-.11,1.22-.34,1.78"/>
                   </g>
                 </g>
               </g>
             </g>
-            <g id="Grupo_43-2" data-name="Grupo 43-2">
-              <path id="Caminho_393-2" data-name="Caminho 393-2" class="cls-4" d="M310.46,207.36c0,.24-.09.46-.27.62-.22.17-.5.26-.77.24h-6.76c-.33,0-.66-.11-.92-.32-.28-.21-.49-.5-.61-.82l-1.57-4.57h-12.07l-1.55,4.55c-.09.33-.29.62-.57.82-.28.21-.62.33-.98.32h-6.74c-.28.02-.55-.06-.77-.23-.18-.16-.29-.39-.27-.63,0-.19.05-.37.12-.55l12.72-32.27c.14-.34.38-.64.68-.86.27-.2.6-.31.94-.31h5.02c.34,0,.67.12.94.32.29.21.51.51.63.85l12.69,32.29c.07.17.11.36.12.55M297.1,195.31l-3.6-10.55-3.6,10.55h7.2Z"/>
-              <path id="Caminho_394-2" data-name="Caminho 394-2" class="cls-4" d="M338.14,174.64c0-.34.13-.66.37-.89.23-.24.56-.38.89-.37h10.81c3.16-.05,6.28.71,9.06,2.23,2.61,1.44,4.77,3.58,6.23,6.19,1.52,2.76,2.29,5.86,2.24,9.01.05,3.14-.72,6.23-2.24,8.98-1.46,2.6-3.61,4.74-6.23,6.17-2.78,1.51-5.9,2.27-9.06,2.21h-10.81c-.7,0-1.26-.56-1.26-1.26h0v-32.27ZM350.21,199.97c3.23.04,6.21-1.71,7.74-4.55.77-1.42,1.16-3.01,1.14-4.62.02-1.66-.37-3.3-1.14-4.76-1.5-2.87-4.5-4.65-7.74-4.59l-3.43.02v18.5h3.43Z"/>
-              <path id="Caminho_395-2" data-name="Caminho 395-2" class="cls-4" d="M425.13,173.56c.18.15.28.38.26.62,0,.2-.04.39-.12.57l-12.72,32.27c-.13.35-.36.65-.65.87-.27.21-.6.32-.94.32h-5.02c-.35,0-.68-.12-.95-.33-.29-.21-.52-.5-.64-.83l-12.67-32.29c-.07-.17-.11-.36-.12-.55,0-.23.09-.46.26-.61.22-.16.49-.25.76-.23h6.76c.34,0,.67.11.94.32.28.21.48.51.58.85l7.55,21,7.67-21.05c.1-.34.31-.63.6-.83.27-.2.59-.31.93-.31h6.76c.27-.02.54.06.76.21"/>
-              <path id="Caminho_396-2" data-name="Caminho 396-2" class="cls-4" d="M452.9,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h22.4c.34-.02.68.1.93.33.23.25.35.59.33.93v5.48c.02.34-.1.67-.32.93-.25.24-.59.36-.94.33h-15.12v5.76h11.48c.37-.02.73.1,1.01.35.26.25.39.61.37.97v4.53c.02.35-.12.69-.37.93-.28.24-.64.36-1.01.33h-11.48v5.93h15.12c.47-.03.92.13,1.27.44.32.31.49.74.46,1.18v5.14c.02.34-.11.66-.35.9-.26.23-.6.35-.94.33h-22.85c-.34.02-.67-.09-.93-.32-.23-.25-.36-.58-.33-.92v-32.29Z"/>
-              <path id="Caminho_397-2" data-name="Caminho 397-2" class="cls-4" d="M534.29,207.26c0,.51-.4.92-.9.93-.02,0-.03,0-.05,0h-7.12c-.29.02-.58-.06-.82-.23-.27-.24-.48-.52-.63-.85l-5.1-9.81h-3.55v9.62c.02.34-.11.68-.35.93-.26.23-.61.35-.96.33h-6.1c-.34.02-.67-.1-.92-.33-.23-.25-.34-.59-.32-.93v-32.29c-.01-.34.11-.66.35-.9.23-.24.56-.37.89-.36h12.22c2.26-.04,4.49.47,6.5,1.49,1.85.95,3.38,2.42,4.42,4.23,1.09,1.94,1.64,4.14,1.59,6.36.03,2.04-.46,4.06-1.42,5.86-.92,1.71-2.29,3.13-3.96,4.12l6.1,11.31c.1.16.14.34.14.52M516.12,189.85h4.45c.77.01,1.52-.2,2.18-.6.64-.39,1.16-.95,1.51-1.62.37-.69.56-1.46.55-2.24.01-.76-.18-1.51-.55-2.18-.35-.63-.88-1.15-1.51-1.5-.67-.36-1.42-.55-2.18-.53h-4.45v8.67Z"/>
-              <path id="Caminho_398-2" data-name="Caminho 398-2" class="cls-4" d="M561.13,174.64c-.02-.34.1-.68.33-.93.25-.23.59-.35.93-.33h23.24c.34-.02.68.1.93.33.23.25.35.59.33.93v5.74c.02.35-.1.68-.33.94-.25.24-.58.37-.93.35h-7.31v25.55c.02.35-.1.69-.33.94-.26.23-.6.35-.95.32h-6.1c-.64.06-1.2-.4-1.26-1.04,0-.07,0-.15,0-.22v-25.55h-7.29c-.34.02-.68-.1-.93-.35-.23-.26-.35-.6-.33-.94v-5.74Z"/>
-              <path id="Caminho_399-2" data-name="Caminho 399-2" class="cls-4" d="M623.9,207.24c.07.44-.23.86-.68.93-.07.01-.15.01-.22,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.25.9.69,0,.07,0,.14,0,.21v32.94Z"/>
-              <path id="Caminho_400-2" data-name="Caminho 400-2" class="cls-4" d="M652.91,204.31c.01-.3.1-.6.26-.86l2.81-5.05c.2-.41.62-.67,1.07-.67.27.01.54.08.79.19,1.47.68,2.99,1.24,4.55,1.68,1.51.41,3.06.61,4.62.61,1.06.03,2.12-.21,3.06-.7.75-.34,1.24-1.07,1.25-1.89,0-.58-.25-1.13-.7-1.5-.6-.49-1.27-.86-2-1.12-.87-.33-2.09-.73-3.66-1.19-2.07-.58-4.08-1.36-6-2.34-1.43-.74-2.65-1.83-3.54-3.18-.87-1.47-1.29-3.15-1.22-4.86-.05-2.05.57-4.07,1.76-5.74,1.2-1.62,2.82-2.88,4.69-3.63,2.01-.83,4.17-1.25,6.35-1.23,1.47,0,2.94.17,4.37.5,1.37.3,2.71.73,4.01,1.26,1.03.42,2.02.93,2.95,1.52.41.21.68.62.71,1.07-.03.32-.13.63-.31.9l-2.83,5.14c-.17.38-.56.62-.98.62-.37-.02-.73-.13-1.05-.31-1.18-.62-2.41-1.14-3.68-1.56-1.23-.37-2.51-.55-3.8-.54-.91-.02-1.81.2-2.6.64-.64.29-1.07.92-1.1,1.62,0,.7.47,1.3,1.41,1.8,1.45.69,2.97,1.25,4.53,1.65,2.14.6,4.22,1.37,6.24,2.3,1.52.71,2.84,1.79,3.83,3.14,1.03,1.52,1.53,3.33,1.45,5.16.04,2.1-.58,4.15-1.79,5.87-1.23,1.71-2.91,3.04-4.86,3.85-2.15.91-4.46,1.36-6.79,1.33-2.35,0-4.68-.31-6.95-.9-2.2-.56-4.31-1.43-6.26-2.6-.38-.19-.61-.58-.62-1"/>
-              <path id="Caminho_401-2" data-name="Caminho 401-2" class="cls-4" d="M717.37,207.24c.07.44-.23.86-.68.93-.08.01-.15.01-.23,0h-6.79c-.46.06-.87-.27-.93-.73,0-.07,0-.14,0-.2v-32.94c-.06-.44.26-.85.7-.9.07,0,.15,0,.22,0h6.79c.44-.06.84.24.9.68.01.07.01.15,0,.22v32.94Z"/>
-              <path id="Caminho_402-2" data-name="Caminho 402-2" class="cls-4" d="M778.6,173.61c.17.19.26.44.24.69v32.96c.02.26-.07.51-.25.69-.19.17-.43.25-.68.24h-6.48c-.75,0-1.45-.41-1.81-1.07l-13.38-20.36v20.5c.02.25-.07.51-.25.69-.19.17-.43.25-.68.24h-6.79c-.25.01-.49-.07-.68-.24-.18-.18-.27-.44-.25-.69v-32.95c-.02-.25.07-.51.25-.69.19-.17.43-.25.68-.24h7.03c.75.04,1.42.46,1.79,1.12l12.88,19.15v-19.34c-.02-.25.07-.5.24-.69.18-.17.42-.25.67-.24h6.79c.25-.02.5.07.69.24"/>
-              <path id="Caminho_403-2" data-name="Caminho 403-2" class="cls-4" d="M827.49,200.03c.61-.16,1.2-.37,1.76-.66v-6.14c-.01-.34.12-.67.37-.91.24-.23.56-.36.89-.36h5.98c.32,0,.64.13.86.37.23.24.36.56.36.89v11.36c0,.26-.07.51-.19.74-.1.23-.27.42-.48.55-1.63.97-3.4,1.7-5.25,2.14-1.96.55-3.98.85-6.01.88-3.24.03-6.43-.79-9.24-2.4-2.75-1.56-5.04-3.82-6.63-6.55-1.63-2.77-2.47-5.93-2.44-9.15-.04-6.48,3.42-12.47,9.05-15.67,2.81-1.61,6-2.44,9.24-2.41,1.91.02,3.81.34,5.62.94,1.76.51,3.41,1.35,4.86,2.47.33.23.53.62.52,1.02,0,.24-.07.47-.22.67l-3.5,5.26c-.19.32-.53.51-.91.5-.3,0-.59-.1-.81-.31-.78-.65-1.68-1.13-2.64-1.44-.93-.33-1.92-.5-2.91-.51-1.71-.02-3.39.42-4.88,1.26-1.45.82-2.66,2-3.5,3.44-1.71,2.96-1.71,6.61,0,9.57.84,1.44,2.05,2.62,3.5,3.44,1.49.84,3.17,1.28,4.88,1.26.58-.02,1.16-.11,1.72-.27"/>
-            </g>
-            <g id="Grupo_41-2" data-name="Grupo 41-2">
-              <g class="cls-2">
-                <g id="Grupo_4-4" data-name="Grupo 4-4">
-                  <path id="Caminho_204-4" data-name="Caminho 204-4" class="cls-3" d="M239.71,6.67l-91.78,233.94c-1.2,3.05-4.14,5.05-7.41,5.05h-41c-3.27,0-6.21-2.01-7.41-5.05L.34,6.67C-.64,4.16.59,1.32,3.1.34,3.67.11,4.28,0,4.89,0h52.84c3.35,0,6.34,2.1,7.48,5.25l54.82,151.23,34.75-95.85c.58-1.6-.25-3.37-1.85-3.95-.34-.12-.69-.19-1.05-.18h-34.39c-2.7,0-4.88-2.19-4.88-4.88,0-.57.1-1.13.29-1.66l16.2-44.7c1.14-3.15,4.13-5.25,7.49-5.25h98.59c2.7,0,4.88,2.19,4.88,4.88,0,.61-.11,1.22-.34,1.78"/>
-                </g>
-              </g>
-            </g>
           </g>
-        </g>
-      </svg>
-</header>
+        </svg>
+    </header>
 
-<nav class="navbar">
-    <div class="navbar-container">
-        <a href="#geral">Visão Geral</a>
-        <div class="dropdown">
-            <button class="dropbtn">Análise de Tráfego</button>
-            <div class="dropdown-content">
-                <a href="#traffic-sources">Fontes de Tráfego</a>
-                <a href="#user-types">Visitantes Novos vs Recorrentes</a>
+    <main>
+        <h1>🎰 Análise Competitiva: Casino Online em Ontário</h1>
+        [cite_start]<p class="intro-text">O objetivo da Pickswise será posicionar-se como uma autoridade que ajuda os utilizadores a escolher o melhor casino online, os melhores jogos e a compreender as promoções, guiando-os para os operadores licenciados em Ontário. [cite: 2]</p>
+
+        <section class="section">
+            <h2>Concorrência</h2>
+            
+            <h3>1. [cite_start]Concorrentes Diretos (Afiliados e Sites de Review) [cite: 4]</h3>
+            [cite_start]<p>Estes players competem diretamente pelo tráfego de pesquisa, gerando leads para os operadores de casino. [cite: 5, 6]</p>
+            <div class="card-container">
+                <div class="card">
+                    <h4>Casino.org</h4>
+                    [cite_start]<p>Provavelmente o maior e mais autoritário site de afiliação de casino do mundo, com imenso poder de SEO e forte presença no Canadá/Ontário. [cite: 7, 8]</p>
+                </div>
+                <div class="card">
+                    <h4>Bonus.ca / Casinos.ca</h4>
+                    [cite_start]<p>Sites hiper-focados no mercado canadiano, com domínios .ca que lhes dão grande relevância local. [cite: 9] [cite_start]São agressivos em palavras-chave de bónus. [cite: 10]</p>
+                </div>
+                <div class="card">
+                    <h4>PlayCanada.com</h4>
+                    [cite_start]<p>Parte da rede Catena Media, produzem conteúdo de alta qualidade e detalhado sobre a regulamentação em Ontário. [cite: 11, 12]</p>
+                </div>
+                <div class="card">
+                    <h4>Time2play.com</h4>
+                    [cite_start]<p>Player mais recente que cresceu rapidamente com foco na experiência do utilizador e reviews transparentes. [cite: 13]</p>
+                </div>
+                 <div class="card">
+                    <h4>CasinoCanuck.ca</h4>
+                    [cite_start]<p>Outro site com forte identidade canadiana, focado em reviews e notícias para o público local. [cite: 14]</p>
+                </div>
+                 <div class="card">
+                    <h4>Grandes Grupos</h4>
+                    [cite_start]<p>Empresas como a Gambling.com Group e a Better Collective operam vários sites que visam o mercado de Ontário. [cite: 15]</p>
+                </div>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Performance SEO</button>
-            <div class="dropdown-content">
-                <a href="#organic-clicks">Cliques Orgânicos</a>
-                <a href="#organic-table">Tabela de Desempenho</a>
+
+            <h3 style="margin-top: 2em;">2. [cite_start]Concorrentes Indiretos (Operadores de Casino) [cite: 16]</h3>
+             <div class="card-container">
+                <div class="card secondary">
+                    <h4>OLG.ca</h4>
+                    [cite_start]<p>O site oficial da "Ontario Lottery and Gaming Corporation". [cite: 17] [cite_start]É a opção governamental e tem um nível de confiança muito elevado. [cite: 18]</p>
+                </div>
+                <div class="card secondary">
+                    <h4>Marcas Populares</h4>
+                     <ul>
+                        [cite_start]<li><b>LeoVegas:</b> Uma marca "casino-first" muito forte no Canadá. [cite: 19]</li>
+                        [cite_start]<li><b>Royal Panda:</b> Outra marca popular focada em casino. [cite: 22]</li>
+                    </ul>
+                </div>
+                <div class="card secondary">
+                    <h4>Gigantes do Desporto</h4>
+                     <ul>
+                        <li>BetMGM Casino</li>
+                        <li>BetRivers Casino</li>
+                        <li>Caesars Palace Online Casino</li>
+                    </ul>
+                     [cite_start]<p>As mesmas grandes marcas do desporto, com produtos de casino robustos e orçamentos gigantescos. [cite: 20]</p>
+                </div>
+                 <div class="card secondary">
+                    <h4>Marcas Históricas</h4>
+                    <ul>
+                        <li>PokerStars Casino</li>
+                        <li>PartyCasino</li>
+                        <li>888casino</li>
+                    </ul>
+                    [cite_start]<p>Marcas com uma longa história no poker e casino online, com forte presença em Ontário. [cite: 21]</p>
+                </div>
             </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Afiliados</button>
-            <div class="dropdown-content">
-                 <a href="#affiliate-clicks">Cliques por Marca</a>
-                 <a href="#conversions">Conversões Mensais</a>
-                 <a href="#effort-reward">Esforço vs Recompensa</a>
+        </section>
+
+        <section class="section critical-section">
+            <h2>⚠️ Ponto Crítico: Regras de Publicidade em Ontário</h2>
+            [cite_start]<p>Este é o fator mais importante para a estratégia de Google Ads. [cite: 24] [cite_start]A Alcohol and Gaming Commission of Ontario (AGCO) impõe regras muito restritas sobre a publicidade de "inducements" (incentivos). [cite: 25]</p>
+            [cite_start]<p><strong>O que isto significa:</strong> É <strong>proibido</strong> fazer publicidade de ofertas de bónus específicos (ex: "100 Rodadas Grátis") em canais como o Google Ads. [cite: 26] [cite_start]Essa informação só pode ser apresentada no site após o consentimento explícito do utilizador. [cite: 27]</p>
+            
+            <h3>Implicações para a Estratégia</h3>
+            [cite_start]<p>O copywriting dos anúncios não pode mencionar bónus. [cite: 29] [cite_start]Teremos de focar a mensagem noutros diferenciadores: [cite: 30]</p>
+            <ul>
+                [cite_start]<li><strong>Seleção de Jogos:</strong> "Mais de 1.500 Slots e Jogos de Mesa." [cite: 31]</li>
+                [cite_start]<li><strong>Segurança e Confiança:</strong> "Apenas Casinos Licenciados em Ontário." [cite: 32]</li>
+                [cite_start]<li><strong>Reviews e Análises:</strong> "Reviews Honestos. Encontre o Melhor Casino." [cite: 33]</li>
+                [cite_start]<li><strong>Categorias de Jogos:</strong> "Jogue os Melhores Live Dealer Games de Ontário." [cite: 34]</li>
+            </ul>
+            
+            <h3>Solução: O "Portão de Consentimento"</h3>
+            [cite_start]<p>A solução é implementar um "consent gate" ou "age gate" na nossa landing page. [cite: 38]</p>
+            <div class="solution-flow">
+                [cite_start]<div class="solution-step">O utilizador clica no seu anúncio do Google. [cite: 40]</div>
+                [cite_start]<div class="solution-step">Aterra na sua URL e um pop-up ou sobreposição de ecrã aparece imediatamente. [cite: 41]</div>
+                [cite_start]<div class="solution-step">O pop-up pede verificação de idade (19+) e consentimento para ver conteúdo promocional. [cite: 43, 45]</div>
+                [cite_start]<div class="solution-step">Após o utilizador clicar em "Aceitar e Entrar", a landing page com as ofertas de bónus é revelada. [cite: 47, 49]</div>
             </div>
-        </div>
-        <a href="#strategy">Estratégia</a>
-    </div>
-</nav>
+        </section>
+        
+        <section class="section">
+            <h2>Análise de Google Ads da Concorrência</h2>
+            
+            <h3>Afiliados</h3>
+            [cite_start]<p>Nenhum dos concorrentes diretos (afiliados) parece estar a utilizar Google Ads ativamente, o que pode representar uma oportunidade. [cite: 51]</p>
+            
+            <h3>Marcas (Operadores)</h3>
+            [cite_start]<p>As marcas, por outro lado, estão ativas e a licitar para uma vasta gama de palavras-chave, desde termos genéricos de casino a nomes de concorrentes. [cite: 53]</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domínio</th>
+                        <th>Exemplos de Palavras-Chave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>OLG.ca</td>
+                        [cite_start]<td>sportsbook, pointsbet, mrbet, lottery tickets online, olg sports, rocketplay casino, sports bet site... [cite: 53]</td>
+                    </tr>
+                     <tr>
+                        <td>rocketjackpots.com</td>
+                        [cite_start]<td>sportsbook, casino classic, best online casinos, online poker real money, free spins for $1, casino gambling... [cite: 53]</td>
+                    </tr>
+                    <tr>
+                        <td>fiestareels.com</td>
+                        [cite_start]<td>best canadian online casino review, online casino canada, slots, online gambling, real casino online, casino bonus... [cite: 53]</td>
+                    </tr>
+                    <tr>
+                        <td>caesars.com</td>
+                        [cite_start]<td>flamingo hotel, caesars place, pompano park racing, magic show in las vegas, harrahs ac... [cite: 53]</td>
+                    </tr>
+                    <tr>
+                        <td>simpleplaysocial.com</td>
+                        [cite_start]<td>casinos, roobets, stake crypto casino, bc casino online, slottica, online gambling quebec, bonus casinos... [cite: 53]</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </section>
 
-<div class="container">
 
-    <section id="geral" class="section">
-        <h2>Visão Geral do Período (Q1-Q3 2025)</h2>
-        <div class="kpi-container">
-            <div class="kpi">
-                <div>Total de Sessões</div>
-                <div class="value">1.1M</div>
-                <div class="change increase">+37.15%</div>
-            </div>
-            <div class="kpi">
-                <div>Total de Pageviews</div>
-                <div class="value">1.64M</div>
-                <div class="change increase">+40.46%</div>
-            </div>
-        </div>
-    </section>
+    </main>
 
-    <section id="traffic-sources" class="section">
-        <h2>Fontes de Tráfego por Trimestre</h2>
-        <p>A Pesquisa Orgânica (Organic Search) demonstrou um crescimento notável, tornando-se a principal fonte de tráfego no Q3.</p>
-        <div class="grid">
-            <div>
-                <h4>Q1</h4>
-                <div class="chart-container"><canvas id="trafficQ1"></canvas></div>
-            </div>
-            <div>
-                <h4>Q2</h4>
-                <div class="chart-container"><canvas id="trafficQ2"></canvas></div>
-            </div>
-            <div>
-                <h4>Q3</h4>
-                <div class="chart-container"><canvas id="trafficQ3"></canvas></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="user-types" class="section">
-        <h2>Visitantes Novos vs. Recorrentes</h2>
-        <p>Observa-se um aumento progressivo na percentagem de visitantes recorrentes, indicando uma maior fidelização da audiência.</p>
-        <div class="grid">
-            <div>
-                <h4>Q1</h4>
-                <div class="chart-container"><canvas id="usersQ1"></canvas></div>
-            </div>
-            <div>
-                <h4>Q2</h4>
-                <div class="chart-container"><canvas id="usersQ2"></canvas></div>
-            </div>
-            <div>
-                <h4>Q3</h4>
-                <div class="chart-container"><canvas id="usersQ3"></canvas></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="organic-clicks" class="section">
-        <h2>Evolução da Performance Orgânica (SEO)</h2>
-        <div class="grid">
-            <div>
-                <h4>Cliques Orgânicos por Mês</h4>
-                <div class="chart-container"><canvas id="organicClicksChart"></canvas></div>
-            </div>
-            <div>
-                <h4>Posição Média por Mês</h4>
-                <div class="chart-container"><canvas id="positionChart"></canvas></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="organic-table" class="section">
-        <h2>Tabela de Desempenho Orgânico</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Trimestre</th>
-                    <th>Cliques</th>
-                    <th>Variação (%)</th>
-                    <th>Impressões</th>
-                    <th>Variação (%)</th>
-                    <th>Posição Média</th>
-                    <th>Variação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Q1 2025</td>
-                    <td>190,716</td>
-                    <td>-</td>
-                    <td>14,105,336</td>
-                    <td>-</td>
-                    <td>9.83</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>Q2 2025</td>
-                    <td>312,169</td>
-                    <td class="increase">64%</td>
-                    <td>28,572,951</td>
-                    <td class="increase">103%</td>
-                    <td>8.72</td>
-                    <td class="increase">-1.11</td>
-                </tr>
-                <tr>
-                    <td>Q3 2025</td>
-                    <td>594,105</td>
-                    <td class="increase">90%</td>
-                    <td>56,328,565</td>
-                    <td class="increase">97%</td>
-                    <td>9.18</td>
-                    <td class="decrease">+0.46</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    
-    <section id="affiliate-clicks" class="section">
-        <h2>Cliques de Afiliados por Marca</h2>
-         <p>O volume de cliques de afiliados cresceu exponencialmente. A Bet365 assumiu a liderança no Q2 e Q3.</p>
-        <div class="grid">
-            <div>
-                <h4>Q1 (145 cliques)</h4>
-                <div class="chart-container"><canvas id="affiliateQ1"></canvas></div>
-            </div>
-            <div>
-                <h4>Q2 (313 cliques, <span class="increase">+115%</span>)</h4>
-                <div class="chart-container"><canvas id="affiliateQ2"></canvas></div>
-            </div>
-            <div>
-                <h4>Q3 (531 cliques, <span class="increase">+70%</span>)</h4>
-                <div class="chart-container"><canvas id="affiliateQ3"></canvas></div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="conversions" class="section">
-        <h2>Conversões Mensais (FTDs, Registos, Cliques de Afiliados)</h2>
-        <div class="chart-container" style="height: 500px;"><canvas id="conversionsChart"></canvas></div>
-    </section>
-    
-    <section id="effort-reward" class="section">
-        <h2>Análise de Esforço vs. Recompensa por Categoria</h2>
-        <p>Apesar do baixo volume de publicações, a categoria "Reviews" apresenta a maior taxa de conversão (18.40%), indicando um alto retorno sobre o investimento.</p>
-        <div class="grid">
-            <div>
-                <h4>Publicações vs. Cliques de Afiliados</h4>
-                <div class="chart-container"><canvas id="effortChart"></canvas></div>
-            </div>
-            <div>
-                <h4>Taxa de Conversão (CR%)</h4>
-                <div class="chart-container"><canvas id="crChart"></canvas></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="strategy" class="section">
-        <h2>Estratégia para o 2º Semestre</h2>
-        <div class="grid">
-            <div>
-                <h4>01. Escalar Conversão</h4>
-                <ul>
-                    <li>Aumentar a produção de conteúdos de apostas.</li>
-                    <li>Continuar otimização de conteúdos evergreen.</li>
-                    <li>Rever estrutura de links internos.</li>
-                    <li>Focar em estratégia de backlinks.</li>
-                </ul>
-            </div>
-            <div>
-                <h4>02. Inovação</h4>
-                <ul>
-                    <li>Criar páginas de ferramentas de apostas com IA.</li>
-                    <li>Testar conteúdo evolutivo (rankings "os melhores").</li>
-                </ul>
-            </div>
-            <div>
-                <h4>03. Otimização Contínua</h4>
-                <ul>
-                    <li>Transformar "palpites" em conteúdo histórico para preservar o valor do URL e melhorar o E-E-A-T.</li>
-                    <li>Continuar a aumentar a autoridade do site (DR atual: 58).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<script>
-    const brandColors = {
-        primary: '#231372',
-        secondary: '#20E2C8',
-        accent: '#6106AF',
-        primary_light: 'rgba(35, 19, 114, 0.7)',
-        secondary_light: 'rgba(32, 226, 200, 0.7)',
-        accent_light: 'rgba(97, 6, 175, 0.7)'
-    };
-
-    // Gráfico: Fontes de Tráfego Q1
-    new Chart(document.getElementById('trafficQ1'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
-            datasets: [{
-                data: [52.1, 25.4, 19.9, 2.5],
-                backgroundColor: [brandColors.primary, brandColors.secondary, brandColors.accent, brandColors.accent_light]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Fontes de Tráfego Q2
-    new Chart(document.getElementById('trafficQ2'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
-            datasets: [{
-                data: [52, 28.9, 16.6, 2.4],
-                backgroundColor: [brandColors.primary, brandColors.secondary, brandColors.accent, brandColors.accent_light]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Fontes de Tráfego Q3
-    new Chart(document.getElementById('trafficQ3'), {
-        type: 'doughnut',
-        data: {
-            labels: ['Organic Search', 'Direct', 'Organic Social', 'Referral'],
-            datasets: [{
-                data: [64.9, 19.6, 13.8, 1.5],
-                backgroundColor: [brandColors.primary, brandColors.secondary, brandColors.accent, brandColors.accent_light]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Visitantes Q1
-    new Chart(document.getElementById('usersQ1'), {
-        type: 'pie',
-        data: {
-            labels: ['Novos', 'Recorrentes'],
-            datasets: [{
-                data: [49.5, 39.1],
-                backgroundColor: [brandColors.primary, brandColors.secondary]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Visitantes Q2
-    new Chart(document.getElementById('usersQ2'), {
-        type: 'pie',
-        data: {
-            labels: ['Novos', 'Recorrentes'],
-            datasets: [{
-                data: [47.8, 41.2],
-                backgroundColor: [brandColors.primary, brandColors.secondary]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Visitantes Q3
-    new Chart(document.getElementById('usersQ3'), {
-        type: 'pie',
-        data: {
-            labels: ['Novos', 'Recorrentes'],
-            datasets: [{
-                data: [46.5, 44.8],
-                backgroundColor: [brandColors.primary, brandColors.secondary]
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-
-    // Gráfico: Cliques Orgânicos
-    new Chart(document.getElementById('organicClicksChart'), {
-        type: 'line',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
-            datasets: [{
-                label: 'Cliques Orgânicos',
-                data: [88000, 108000, 100000, 128000, 115000, 160000, 275000],
-                borderColor: brandColors.primary,
-                backgroundColor: brandColors.primary_light,
-                tension: 0.2,
-                fill: true
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false }
-    });
-    
-    // Gráfico: Posição Média
-    new Chart(document.getElementById('positionChart'), {
-        type: 'line',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
-            datasets: [{
-                label: 'Posição Média',
-                data: [10.8, 8.9, 9.7, 8.1, 8.8, 9.5, 9.9, 9.9, 7.7],
-                borderColor: brandColors.accent,
-                backgroundColor: brandColors.accent_light,
-                tension: 0.2,
-                fill: true
-            }]
-        },
-        options: { responsive: true, maintainAspectRatio: false, scales: { y: { reverse: true } } }
-    });
-    
-    // Gráficos de Afiliados
-    const affiliateOptions = {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } }
-    };
-
-    new Chart(document.getElementById('affiliateQ1'), {
-        type: 'bar',
-        data: {
-            labels: ['Galerabet', 'Esportes da Sorte', 'Alfa.bet', 'Superbet', 'Bet365', 'Blaze'],
-            datasets: [{ label: 'Cliques', data: [34, 22, 16, 16, 13, 10], backgroundColor: brandColors.secondary_light }]
-        },
-        options: affiliateOptions
-    });
-
-    new Chart(document.getElementById('affiliateQ2'), {
-        type: 'bar',
-        data: {
-            labels: ['Bet365', 'Galerabet', 'Superbet', 'Esportes da Sorte', 'Alfa.bet', 'Blaze'],
-            datasets: [{ label: 'Cliques', data: [69, 45, 43, 42, 26, 21], backgroundColor: brandColors.secondary_light }]
-        },
-        options: affiliateOptions
-    });
-
-    new Chart(document.getElementById('affiliateQ3'), {
-        type: 'bar',
-        data: {
-            labels: ['Bet365', 'Superbet', 'Galerabet', 'Esportes da Sorte', 'Alfa.bet', 'Blaze'],
-            datasets: [{ label: 'Cliques', data: [94, 83, 69, 68, 44, 30], backgroundColor: brandColors.secondary_light }]
-        },
-        options: affiliateOptions
-    });
-
-    // Gráfico de Conversões
-    new Chart(document.getElementById('conversionsChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro'],
-            datasets: [
-                { label: 'FTDs', data: [9, 18, 1, 2, 3, 13, 12, 11, 12], backgroundColor: brandColors.primary },
-                { label: 'Registos', data: [0, 5, 96, 20, 11, 21, 26, 0, 0], backgroundColor: brandColors.accent },
-                { label: 'Affiliate Clicks', data: [0, 62, 117, 128, 81, 104, 152, 159, 220], backgroundColor: brandColors.secondary }
-            ]
-        },
-        options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
-    });
-    
-    // Gráfico Esforço vs Recompensa
-    new Chart(document.getElementById('effortChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Reviews', 'Apostas', 'Palpites', 'Notícias'],
-            datasets: [
-                {
-                    label: 'Nº Publicações',
-                    data: [8, 39, 241, 4824],
-                    backgroundColor: brandColors.primary_light,
-                    order: 2
-                },
-                {
-                    label: 'Affiliate Clicks',
-                    data: [90, 147, 33, 268],
-                    borderColor: brandColors.secondary,
-                    backgroundColor: brandColors.secondary,
-                    type: 'line',
-                    yAxisID: 'y1',
-                    order: 1
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Nº de Publicações' } },
-                y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'Cliques de Afiliados' }, grid: { drawOnChartArea: false } }
-            }
-        }
-    });
-
-    // Gráfico CR%
-    new Chart(document.getElementById('crChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Reviews', 'Apostas', 'Palpites', 'Notícias'],
-            datasets: [{
-                label: 'CR (%)',
-                data: [18.40, 2.24, 0.46, 0.03],
-                backgroundColor: [brandColors.secondary, brandColors.secondary_light, brandColors.primary_light, brandColors.accent_light]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } }
-        }
-    });
-
-</script>
 </body>
 </html>
