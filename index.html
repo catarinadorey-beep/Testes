@@ -308,6 +308,41 @@
             font-size: 0.9em;
         }
 
+        /* Ad Gallery Styles */
+        .ad-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5em;
+            justify-content: center;
+            margin-top: 2em;
+        }
+
+        .ad-image {
+            margin: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            flex: 1 1 400px;
+            max-width: 500px;
+        }
+
+        .ad-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .ad-image figcaption {
+            padding: 0.8em;
+            font-size: 0.9em;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            font-family: 'Figtree', sans-serif;
+            font-weight: 700;
+        }
+
     </style>
 </head>
 <body>
@@ -501,6 +536,22 @@
                 </tbody>
             </table>
         </section>
+
+        <section class="section">
+            <h2>Competitor Ad Examples: OLG.ca</h2>
+            <p>Below are some examples of Google Ads currently run by OLG.ca, showcasing their messaging and style.</p>
+            <div class="ad-gallery">
+                <figure class="ad-image">
+                    <img src="OLG.ca1.png" alt="First ad example for OLG.ca">
+                    <figcaption>Ad Example 1</figcaption>
+                </figure>
+                <figure class="ad-image">
+                    <img src="OLG.ca2.png" alt="Second ad example for OLG.ca">
+                    <figcaption>Ad Example 2</figcaption>
+                </figure>
+            </div>
+        </section>
+
     </main>
 </body>
 </html>
