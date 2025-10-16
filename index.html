@@ -157,17 +157,18 @@
             padding: 1.5em;
             font-size: 0.95em;
             text-align: left;
+            flex-direction: column;
         }
         
-        .card-back ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
-        .card-back ul li {
-            margin-bottom: 0.5em;
+        .card-back p {
+            margin: 0.5em 0;
         }
 
+        .card-back .brands {
+            font-weight: 700;
+            color: var(--highlight-color);
+        }
+        
 
         /* Critical Section (re-styled) */
         .important-section {
@@ -298,6 +299,8 @@
             border-radius: 0 0 5px 5px;
             list-style-type: square;
             list-style-position: inside;
+            max-height: 200px;
+            overflow-y: auto;
         }
 
         details li {
@@ -387,10 +390,10 @@
                     <div class="card-inner">
                         <div class="card-front"><h4>Popular Brands</h4></div>
                         <div class="card-back">
-                            <ul>
-                                <li><b>LeoVegas:</b> A very strong and popular "casino-first" brand in Canada.</li>
-                                <li><b>Royal Panda:</b> Another popular casino-focused brand.</li>
-                            </ul>
+                            <div>
+                                <p><span class="brands">LeoVegas, Royal Panda</span></p>
+                                <p>Strong, popular, "casino-first" brands with a major presence in Canada.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -398,12 +401,10 @@
                     <div class="card-inner">
                         <div class="card-front"><h4>Sports Betting Giants</h4></div>
                         <div class="card-back">
-                             <ul>
-                                <li>BetMGM Casino</li>
-                                <li>BetRivers Casino</li>
-                                <li>Caesars Palace Online Casino</li>
-                            </ul>
-                             <p>The same major sports brands, with very robust casino products and huge marketing budgets.</p>
+                             <div>
+                                <p><span class="brands">BetMGM, BetRivers, Caesars Palace</span></p>
+                                <p>Major sports brands with very robust casino products and huge marketing budgets.</p>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -411,12 +412,10 @@
                     <div class="card-inner">
                         <div class="card-front"><h4>Legacy Brands</h4></div>
                         <div class="card-back">
-                            <ul>
-                                <li>PokerStars Casino</li>
-                                <li>PartyCasino</li>
-                                <li>888casino</li>
-                            </ul>
-                            <p>Brands with a long history in online poker and casino that have a strong presence in Ontario.</p>
+                            <div>
+                               <p><span class="brands">PokerStars, PartyCasino, 888casino</span></p>
+                               <p>Brands with a long history in online poker and casino that have a strong presence in Ontario.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -482,6 +481,22 @@
                     <tr>
                         <td>caesars.com</td>
                         <td><details><summary>View Keywords</summary><ul><li>flamingo hotel</li><li>alice cooper tour 2022 canada</li><li>caesars place</li><li>pompano park racing</li><li>dubai flights and hotel packages</li><li>magic show in las vegas</li><li>reo speedwagon caesars windsor</li><li>harrahs ak chin</li><li>magic shows in vegas</li><li>shinedown caesars windsor</li><li>harrah's north kansas city</li><li>cheap motels in atlantic city</li><li>resort hotel atlantic city</li><li>resorts in atlantic city</li><li>harvey hotel</li><li>pompano park</li><li>isles of pompano casino</li><li>harrahs ac</li><li>shows in atlantic city</li><li>caesars dubai</li><li>caesars windsor concerts 2022</li></ul></details></td>
+                    </tr>
+                    <tr>
+                        <td>premiumvenueguide.com</td>
+                        <td><details><summary>View Keywords</summary><ul><li>gambling</li><li>the gaming club</li><li>casino room</li><li>casino night</li><li>golf resorts in bc</li><li>lucky thrillz</li><li>whistler casino</li><li>top 10 casinos</li><li>greenplay</li><li>casinia</li><li>casinocom</li><li>funclub</li><li>luxury casino apps</li><li>casoo</li><li>top casino websites</li><li>best canada casinos</li><li>club world casino</li><li>fun play casino</li><li>bluvegas</li><li>casino luxury</li><li>winmachance casino</li><li>freshbet</li><li>best casinos</li><li>casino best</li><li>fortune casinos</li><li>best slots casinos</li><li>spirit wind casino</li><li>betrivers casino</li><li>casino</li><li>roger casino</li><li>rembrandt casino</li><li>best canada casino</li><li>luckywins</li><li>real money casinos online</li><li>bestcasino</li><li>sky crown casino</li><li>beast casino</li><li>best casinos canada</li></ul></details></td>
+                    </tr>
+                    <tr>
+                        <td>simpleplaysocial.com</td>
+                        <td><details><summary>View Keywords</summary><ul><li>casinos</li><li>roobets</li><li>stake crypto casino</li><li>bc casino online</li><li>slottica</li><li>aglc online casino</li><li>slotv</li><li>winspark</li><li>online gambling quebec</li><li>bonus casinos</li><li>magic spins</li><li>mr green canada</li><li>ivibet</li><li>kenoplay</li><li>winstoria</li><li>best casino online in canada</li><li>www rocketplay</li><li>live baccarat online casino</li><li>canadacasino</li><li>casino online vegas</li><li>best bonus casino online</li><li>rivers casino online</li><li>casino online with bonus</li><li>casino online deposit bonus</li><li>online casino deposit bonuses</li><li>online sic bo</li><li>playzee online casino</li><li>online casino william hill</li><li>online casino for canada</li><li>william hill online games</li><li>games casino</li></ul></details></td>
+                    </tr>
+                    <tr>
+                        <td>winnerslotsgame.com</td>
+                        <td><details><summary>View Keywords</summary><ul><li>dolfwin</li><li>casino</li></ul></details></td>
+                    </tr>
+                    <tr>
+                        <td>yourpartygame.com</td>
+                        <td><details><summary>View Keywords</summary><ul><li>casinos</li><li>cazino</li></ul></details></td>
                     </tr>
                 </tbody>
             </table>
