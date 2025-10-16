@@ -310,10 +310,9 @@
 
         /* Ad Gallery Styles */
         .ad-gallery {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5em;
-            justify-content: center;
             margin-top: 1em;
             margin-bottom: 2.5em;
         }
@@ -325,8 +324,6 @@
             border-radius: 8px;
             overflow: hidden;
             text-align: center;
-            flex: 1 1 400px;
-            max-width: 500px;
         }
 
         .ad-image img {
@@ -606,78 +603,99 @@
             <h2>Competitor Ad Examples</h2>
             <p>Below are some examples of Google Ads currently run by competitors, showcasing their messaging and style.</p>
             
-            <h3>OLG.ca</h3>
+            <h3>Bet99</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="OLG.ca1.png" alt="First ad example for OLG.ca">
-                    <figcaption>Ad Example 1 - OLG.ca</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="OLG.ca2.png" alt="Second ad example for OLG.ca">
-                    <figcaption>Ad Example 2 - OLG.ca</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="bet991.png" alt="Ad example for Bet99"><figcaption>Ad Example - Bet99</figcaption></figure>
             </div>
-            
-            <h3>Sports Interaction</h3>
+
+            <h3>BetMGM</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="sportsinteraction1.png" alt="First ad example for Sports Interaction">
-                    <figcaption>Ad Example 1 - Sports Interaction</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="sportsinteraction2.png" alt="Second ad example for Sports Interaction">
-                    <figcaption>Ad Example 2 - Sports Interaction</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="betmgm1.png" alt="Ad example 1 for BetMGM"><figcaption>Ad Example 1 - BetMGM</figcaption></figure>
+                <figure class="ad-image"><img src="betmgm2.png" alt="Ad example 2 for BetMGM"><figcaption>Ad Example 2 - BetMGM</figcaption></figure>
+                <figure class="ad-image"><img src="betmgm3.png" alt="Ad example 3 for BetMGM"><figcaption>Ad Example 3 - BetMGM</figcaption></figure>
+                <figure class="ad-image"><img src="betmgm4.png" alt="Ad example 4 for BetMGM"><figcaption>Ad Example 4 - BetMGM</figcaption></figure>
+                <figure class="ad-image"><img src="betmgm5.png" alt="Ad example 5 for BetMGM"><figcaption>Ad Example 5 - BetMGM</figcaption></figure>
+            </div>
+
+            <h3>Betty Gaming</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="bettygaming1.png" alt="Ad example 1 for Betty Gaming"><figcaption>Ad Example 1 - Betty Gaming</figcaption></figure>
+                <figure class="ad-image"><img src="bettygaming2.png" alt="Ad example 2 for Betty Gaming"><figcaption>Ad Example 2 - Betty Gaming</figcaption></figure>
+                <figure class="ad-image"><img src="bettygaming3.png" alt="Ad example 3 for Betty Gaming"><figcaption>Ad Example 3 - Betty Gaming</figcaption></figure>
             </div>
 
             <h3>Betway</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="betway1.png" alt="First ad example for Betway">
-                    <figcaption>Ad Example 1 - Betway</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="betway2.png" alt="Second ad example for Betway">
-                    <figcaption>Ad Example 2 - Betway</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="betway1.png" alt="Ad example 1 for Betway"><figcaption>Ad Example 1 - Betway</figcaption></figure>
+                <figure class="ad-image"><img src="betway2.png" alt="Ad example 2 for Betway"><figcaption>Ad Example 2 - Betway</figcaption></figure>
             </div>
 
             <h3>EspaceJeux.com</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="espacejeux.com1.png" alt="First ad example for EspaceJeux.com">
-                    <figcaption>Ad Example 1 - EspaceJeux.com</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="espacejeux.com2.png" alt="Second ad example for EspaceJeux.com">
-                    <figcaption>Ad Example 2 - EspaceJeux.com</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="espacejeux.com1.png" alt="Ad example 1 for EspaceJeux.com"><figcaption>Ad Example 1 - EspaceJeux.com</figcaption></figure>
+                <figure class="ad-image"><img src="espacejeux.com2.png" alt="Ad example 2 for EspaceJeux.com"><figcaption>Ad Example 2 - EspaceJeux.com</figcaption></figure>
+            </div>
+
+            <h3>FanDuel</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="FanDuel1.png" alt="Ad example 1 for FanDuel"><figcaption>Ad Example 1 - FanDuel</figcaption></figure>
+                <figure class="ad-image"><img src="FanDuel2.png" alt="Ad example 2 for FanDuel"><figcaption>Ad Example 2 - FanDuel</figcaption></figure>
+                <figure class="ad-image"><img src="FanDuel3.png" alt="Ad example 3 for FanDuel"><figcaption>Ad Example 3 - FanDuel</figcaption></figure>
+                <figure class="ad-image"><img src="FanDuel4.png" alt="Ad example 4 for FanDuel"><figcaption>Ad Example 4 - FanDuel</figcaption></figure>
+            </div>
+
+            <h3>Golden Tiger Casino</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="goldentigercasino1.png" alt="Ad example for Golden Tiger Casino"><figcaption>Ad Example - Golden Tiger Casino</figcaption></figure>
+            </div>
+
+            <h3>Grand Mondial</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="grandmondial1.png" alt="Ad example 1 for Grand Mondial"><figcaption>Ad Example 1 - Grand Mondial</figcaption></figure>
+                <figure class="ad-image"><img src="grandmondial2.png" alt="Ad example 2 for Grand Mondial"><figcaption>Ad Example 2 - Grand Mondial</figcaption></figure>
+            </div>
+
+            <h3>Jackpot City</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="jackpotcity1.png" alt="Ad example 1 for Jackpot City"><figcaption>Ad Example 1 - Jackpot City</figcaption></figure>
+                <figure class="ad-image"><img src="jackpotcity2.png" alt="Ad example 2 for Jackpot City"><figcaption>Ad Example 2 - Jackpot City</figcaption></figure>
+                <figure class="ad-image"><img src="jackpotcity3.png" alt="Ad example 3 for Jackpot City"><figcaption>Ad Example 3 - Jackpot City</figcaption></figure>
+                <figure class="ad-image"><img src="jackpotcity4.png" alt="Ad example 4 for Jackpot City"><figcaption>Ad Example 4 - Jackpot City</figcaption></figure>
             </div>
 
             <h3>LuckyDays</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="luckydays1.png" alt="First ad example for LuckyDays">
-                    <figcaption>Ad Example 1 - LuckyDays</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="luckydays2.png" alt="Second ad example for LuckyDays">
-                    <figcaption>Ad Example 2 - LuckyDays</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="luckydays1.png" alt="Ad example 1 for LuckyDays"><figcaption>Ad Example 1 - LuckyDays</figcaption></figure>
+                <figure class="ad-image"><img src="luckydays2.png" alt="Ad example 2 for LuckyDays"><figcaption>Ad Example 2 - LuckyDays</figcaption></figure>
             </div>
 
-            <h3>Other Brand Examples</h3>
+            <h3>Luxury Casino</h3>
             <div class="ad-gallery">
-                <figure class="ad-image">
-                    <img src="bet991.png" alt="Ad example for Bet99">
-                    <figcaption>Ad Example - Bet99</figcaption>
-                </figure>
-                <figure class="ad-image">
-                    <img src="FanDuel4.png" alt="Ad example for FanDuel">
-                    <figcaption>Ad Example - FanDuel</figcaption>
-                </figure>
+                <figure class="ad-image"><img src="luxurycasino1.png" alt="Ad example 1 for Luxury Casino"><figcaption>Ad Example 1 - Luxury Casino</figcaption></figure>
+                <figure class="ad-image"><img src="luxurycasino2.png" alt="Ad example 2 for Luxury Casino"><figcaption>Ad Example 2 - Luxury Casino</figcaption></figure>
+            </div>
+
+            <h3>OLG.ca</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="OLG.ca1.png" alt="Ad example 1 for OLG.ca"><figcaption>Ad Example 1 - OLG.ca</figcaption></figure>
+                <figure class="ad-image"><img src="OLG.ca2.png" alt="Ad example 2 for OLG.ca"><figcaption>Ad Example 2 - OLG.ca</figcaption></figure>
+            </div>
+
+            <h3>Sports Interaction</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="sportsinteraction1.png" alt="Ad example 1 for Sports Interaction"><figcaption>Ad Example 1 - Sports Interaction</figcaption></figure>
+                <figure class="ad-image"><img src="sportsinteraction2.png" alt="Ad example 2 for Sports Interaction"><figcaption>Ad Example 2 - Sports Interaction</figcaption></figure>
+            </div>
+
+            <h3>Stardust Casino</h3>
+            <div class="ad-gallery">
+                <figure class="ad-image"><img src="on.stardustcasino.com1.png" alt="Ad example 1 for Stardust Casino"><figcaption>Ad Example 1 - Stardust Casino</figcaption></figure>
+                <figure class="ad-image"><img src="on.stardustcasino.com2.png" alt="Ad example 2 for Stardust Casino"><figcaption>Ad Example 2 - Stardust Casino</figcaption></figure>
+                <figure class="ad-image"><img src="on.stardustcasino.com3.png" alt="Ad example 3 for Stardust Casino"><figcaption>Ad Example 3 - Stardust Casino</figcaption></figure>
+                <figure class="ad-image"><img src="on.stardustcasino.com4.png" alt="Ad example 4 for Stardust Casino"><figcaption>Ad Example 4 - Stardust Casino</figcaption></figure>
             </div>
         </section>
+
 
         <section class="section">
             <h2>Proposed Campaign Structure</h2>
